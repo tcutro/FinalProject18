@@ -15,7 +15,7 @@ class Person:
     print(f"I was born {self.gender}. My name is {self.name}.")
 
   def stats(self):
-      print(f"Stats: \n Wealth: {self.wealth} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
+      print(f"Stats:\n Wealth: {self.wealth} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
   
   def age_up(self):
     self.age += 1 
@@ -26,9 +26,10 @@ health = random.randint(1,101)
 smarts = random.randint(1,101)
 looks = random.randint(1,101)
 death_chance= 125
+possible_genders = ["male","female"]
+gender= random.choice(possible_genders)
 
-
-character = Person(input("What is your name"),"alive",0,"male",0,happiness,health,smarts,looks)
+character = Person(input("What is your name"),"alive",0,gender,0,happiness,health,smarts,looks)
 
 print(character.introduce())
 
@@ -37,8 +38,6 @@ while character.status == "alive":
     x = death_chance - character.age
     death_number = random.randint(1,x+1)
     kill_number = random.randint(1,x+1)
-    print(death_number)
-    print(kill_number)
     if death_number == kill_number:
       character.staus = "dead"
       print("You died")
