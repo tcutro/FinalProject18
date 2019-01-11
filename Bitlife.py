@@ -1,9 +1,10 @@
 import random
 class Person:
-  def __init__(self,name,status,age,gender,wealth,happiness,health,smarts,looks):
+  def __init__(self,name,status,age,school,gender,wealth,happiness,health,smarts,looks):
     self.name = name
     self.status = status
     self.age = age
+    self.school= school
     self.gender = gender
     self.wealth = wealth
     self.happiness = happiness
@@ -29,12 +30,12 @@ death_chance= 125
 possible_genders = ["male","female"]
 gender= random.choice(possible_genders)
 
-character = Person(input("What is your name"),"alive",0,gender,0,happiness,health,smarts,looks)
+character = Person(input("What is your name"),"alive",0,1,gender,0,happiness,health,smarts,looks)
 
-print(character.introduce())
+character.introduce()
 
 while character.status == "alive":
-    print(character.stats())
+    character.stats()
     x = death_chance - character.age
     death_number = random.randint(1,x+1)
     kill_number = random.randint(1,x+1)
@@ -45,4 +46,13 @@ while character.status == "alive":
     print("\n Moves: \n a = grow older a year \n")
     move = input("What is your next move \n")
     if move == 'a':
-        character.age_up()
+      for x in range(10):
+          print("\n")
+      character.age_up()
+    if character.age == 3:
+      print("You are now attending school")
+      character.school = 1
+
+      
+    
+        
