@@ -16,7 +16,7 @@ class Person:
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
 
   def stats(self):
-      print(f"Month: {self.month} \n Stats:\n Wealth: {self.wealth} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
+      print(f"Grade: {self.grade} \nMonth: {self.month} \n\n Stats:\n Wealth: {self.wealth} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
   
   def month_up(self):
     self.month += 1 
@@ -24,7 +24,7 @@ class Person:
 
   def school_scenarios(self):
     if self.grade == 9:
-      scenario = 1
+      scenario = random.randint(1,12)
       if scenario == 1:
         x = input("A bully wants to take your lunch. \n What will you do? \n \n a= punch the bully \n b= give the bully your lunch \n c = run away \n")
         if x == 'a':
@@ -58,7 +58,7 @@ if character.gender == "alien":
   print('the fbi found you')
   
 while character.status == "alive":
-  if character.month == 10:
+  if character.month == 11:
     character.month = 0
     character.grade += 1
   character.stats()
@@ -68,6 +68,7 @@ while character.status == "alive":
     character.staus = "dead"
     print("You died")
     break
+  character.school_scenarios()
   print("\n Moves: \n a = advance a month \n")
   move = input("What is your next move \n")
   if move == 'a':
