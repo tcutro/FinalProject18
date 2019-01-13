@@ -104,7 +104,7 @@ class Person:
           
         
         
-character = Person(input("What is your name"),"alive",0,9,gender,0,happiness,health,smarts,looks)
+character = Person(input("What is your name"),"alive",0,9,gender,50,happiness,health,smarts,looks)
 
 character.introduce()
 
@@ -117,6 +117,22 @@ while character.status == "alive":
   if character.month == 7:
     character.month = 0
     character.grade += 1
+  if character.health < 0:
+    character.health = 0
+  if character.health > 100:
+    character.health = 100
+  if character.happiness < 0:
+    character.happiness = 0
+  if character.happiness > 100:
+    character.happiness = 100
+  if character.smarts < 0:
+    character.smarts = 0
+  if character.smarts > 100:
+    character.smarts = 100
+  if character.looks < 0:
+    character.looks = 0
+  if character.looks > 100:
+    character.looks = 100
   character.stats()
   death_number = random.randint(1,death_chance)
   kill_number = random.randint(1,death_chance)
