@@ -5,8 +5,9 @@ health = random.randint(1,101)
 smarts = random.randint(1,101)
 looks = random.randint(1,101)
 death_chance= 125
-possible_genders = ["male","female", "alien"]
+possible_genders = ["male","female"]
 gender= random.choice(possible_genders)
+completed_scenarios = []
 
 class Person:
   def __init__(self,name,status,month,grade,gender,popularity,happiness,health,smarts,looks):
@@ -32,12 +33,12 @@ class Person:
     print(f'It is the next month')
 
   def school_scenarios(self):
-    completed_scenarios = []
+    global completed_scenarios
     if self.grade == 9:
       scenario = random.randint(1,3)
       if scenario == 1:
-        if "1" not in completed_scenarios:
-          completed_scenarios += "1"
+        if 1 not in completed_scenarios:
+          completed_scenarios.append(1)
           x = input("A bully wants to take your lunch. \n What will you do? \n \n a= punch the bully \n b= give the bully your lunch \n c = run away \n")
           if x == 'a':
             fight = random.randint(1,3)
@@ -52,8 +53,8 @@ class Person:
           elif x == 'c':
             self.smarts += 5
       elif scenario == 2:
-        if "2" not in completed_scenarios:
-          completed_scenarios += "2"
+        if 2 not in completed_scenarios:
+          completed_scenarios.append(2)
           x = input("You are assigned a group project from your freshman technology teacher. What are you going to do? \n \n a= do all the work \n b= do none of the work \n c= split up the work evenly")
           if x == 'a':
             self.smarts += 10
@@ -62,8 +63,8 @@ class Person:
           elif x == 'c':
             self.popularity += 5
       elif scenario == 3:
-        if "3" not in completed_scenarios:
-          completed_scenarios += "3"
+        if 3 not in completed_scenarios:
+          completed_scenarios.append(3)
           x = input("Your mom is yelling at you for getting a bad grade in Dr. Gupta's freshman biology class. What is your next move? \n \n a= give up and cry \n b= study harder \n c= bribe the teacher")
           if x == 'a':
             self.happiness -= 10
