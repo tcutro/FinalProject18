@@ -9,6 +9,7 @@ possible_genders = ["male","female", "alien"]
 gender= random.choice(possible_genders)
 completed_scenarios = []
 times_studied = []
+times_workedout = []
 
 class Person:
   def __init__(self,name,status,month_display,month_total,grade,gender,popularity,happiness,health,smarts,looks):
@@ -70,7 +71,7 @@ class Person:
         if 2 not in completed_scenarios:
           completed_scenarios.append(2)
           while True:
-            x = input("You are assigned a group project from your freshman technology teacher. What are you going to do? \n \n a= do all the work \n b= do none of the work \n c= split up the work evenly")
+            x = input("You are assigned a group project from your freshman technology teacher. What are you going to do? \n \n a= do all the work \n b= do none of the work \n c= split up the work evenly \n")
             if x == 'a':
               self.smarts += 10
               print("Congrats try hard. Your now THAT kid, but hey your smarts went up 10 points")
@@ -89,7 +90,7 @@ class Person:
         if 3 not in completed_scenarios:
           completed_scenarios.append(3)
           while True:
-            x = input("Your mom is yelling at you for getting a bad grade in Dr. Gupta's freshman biology class. What is your next move? \n \n a= give up and cry \n b= study harder \n c= bribe the teacher")
+            x = input("Your mom is yelling at you for getting a bad grade in Dr. Gupta's freshman biology class. What is your next move? \n \n a= give up and cry \n b= study harder \n c= bribe the teacher \n")
             if x == 'a':
               self.happiness -= 10
               print("Since you are a sad, depressed, loser your happiness went down ten points")
@@ -109,9 +110,38 @@ class Person:
       print("We all know you aint studying more than once a month. Nice try")
     else:
       times_studied.append(self.month_total)
-      print(times_studied)
       print('You went to the library to study like a good boy. Your smarts went up 10 points.')
       self.smarts += 5
+  def workout(self):
+    if self.month_total in times_workedout:
+      print("You got your swole on so hard you broke the gym. Come back at a later time.")
+    else:
+      times_workedout.append(self.month_total)
+      while True:
+        x = input("What are you working on? \n c = cardio \n f = flexibility \n w = weights \n p = pretend to do something \n")
+        y = random.randint(1,10)
+        if y == 1:
+          print("Nice job bozo. You injured yourself at the gym. Your health is now down 10 points.")
+          self.health -= 10
+        elif x == 'c':
+          print("The only other time I have you seen you ran that fast is into Wendy's when you heard they were having a deal. But hey your looks and health went up 5 points")
+          self.looks += 5
+          self.health += 5
+          break
+        elif x == 'f':
+          print("Maybe next time youll actually be able to touch your toes but at least you put in some effort. Your health went up 5 points")
+          self.health += 5
+          break
+        elif x== 'w':
+          print("Damn the grind really is real. You actually broke a sweat. Not gonna lie im surprised. Your looks went up 10 points")
+          self.looks += 10
+          break
+        elif x== 'p':
+          print("This is lowkey sad but hey what works for you works for me so your happiness went up 5 points.")
+          self.happiness += 5
+          break
+        else:
+          print("Error")
               
 character = Person(input("What is your name"),"alive",0,0,9,gender,50,happiness,health,smarts,looks)
 
@@ -150,7 +180,7 @@ while character.status == "alive":
     print("You died")
     break
   character.school_scenarios()
-  print("\n Moves: \n a = advance a month \n s = go study at the library")
+  print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
   while True:
     move = input("What is your next move \n")
     if move == 'a':
@@ -159,5 +189,7 @@ while character.status == "alive":
       break
     elif move == 's':
       character.study()
+    elif move == 'w':
+      character.workout()
     else:
       print("Error")
