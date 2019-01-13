@@ -45,17 +45,21 @@ class Person:
               fight = random.randint(1,2)
               if fight == 1:
                 print("You got beat up")
-                break
                 self.health -= 10
+                print("OOF that one hurt. Your health just went down ten points")
+                break
               if fight == 2:
                 print("You won")
-                break
                 self.happiness += 10
+                print("Congrats you surprisingly won! Your happiness went up 10 points")
+                break
             elif x == 'b':
               self.happiness -= 10
+              print("That one was a blow to your self esteem. Your happiness went down 10 points")
               break
             elif x == 'c':
               self.smarts += 5
+              print("Finally, you did something intelligent. Your smarts went up 5 points")
               break
             else:
               print("Error")
@@ -66,12 +70,15 @@ class Person:
             x = input("You are assigned a group project from your freshman technology teacher. What are you going to do? \n \n a= do all the work \n b= do none of the work \n c= split up the work evenly")
             if x == 'a':
               self.smarts += 10
+              print("Congrats try hard. Your now THAT kid, but hey your smarts went up 10 points")
               break
             elif x == 'b':
               self.popularity -= 10
+              print("Ew. Now your THAT kid. No one likes you so you lost 10 popularity points")
               break
             elif x == 'c':
               self.popularity += 5
+              print("Your chill with your groupmates now. You gained 5 popularity points")
               break
             else:
               print("Error")
@@ -82,12 +89,15 @@ class Person:
             x = input("Your mom is yelling at you for getting a bad grade in Dr. Gupta's freshman biology class. What is your next move? \n \n a= give up and cry \n b= study harder \n c= bribe the teacher")
             if x == 'a':
               self.happiness -= 10
+              print("Since you are a sad, depressed, loser your happiness went down ten points")
               break
             elif x == 'b':
               self.smarts += 10
+              print("Wow! Good job! You actually made a good decision. Your smarts went up 10 points")
               break
             elif x == 'c':
               self.smarts -= 10
+              print("Nice try! But she failed you and gave you a fat 0. Your smarts went down 10 points.")
               break
             else:
               print("Error")
@@ -104,7 +114,7 @@ if character.gender == "alien":
   print('the fbi found you')
   
 while character.status == "alive":
-  if character.month == 11:
+  if character.month == 7:
     character.month = 0
     character.grade += 1
   character.stats()
