@@ -8,12 +8,14 @@ death_chance= 125
 possible_genders = ["male","female", "alien"]
 gender= random.choice(possible_genders)
 completed_scenarios = []
+times_studied = []
 
 class Person:
-  def __init__(self,name,status,month,grade,gender,popularity,happiness,health,smarts,looks):
+  def __init__(self,name,status,month_display,month_total,grade,gender,popularity,happiness,health,smarts,looks):
     self.name = name
     self.status = status
-    self.month = month
+    self.month_display = month_display
+    self.month_total = month_total
     self.grade= grade
     self.gender = gender
     self.popularity = popularity
@@ -26,10 +28,11 @@ class Person:
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
 
   def stats(self):
-      print(f"Grade: {self.grade} \nMonth: {self.month} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
+      print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
   
   def month_up(self):
-    self.month += 1 
+    self.month_display += 1
+    self.month_total += 1
     print(f'It is the next month')
 
   def school_scenarios(self):
@@ -101,10 +104,16 @@ class Person:
               break
             else:
               print("Error")
-          
-        
-        
-character = Person(input("What is your name"),"alive",0,9,gender,50,happiness,health,smarts,looks)
+  def study(self):
+    if self.month_total in times_studied:
+      print("We all know you aint studying more than once a month. Nice try")
+    else:
+      times_studied.append(self.month_total)
+      print(times_studied)
+      print('You went to the library to study like a good boy. Your smarts went up 10 points.')
+      self.smarts += 5
+              
+character = Person(input("What is your name"),"alive",0,0,9,gender,50,happiness,health,smarts,looks)
 
 character.introduce()
 
@@ -114,8 +123,8 @@ if character.gender == "alien":
   print('the fbi found you')
   
 while character.status == "alive":
-  if character.month == 7:
-    character.month = 0
+  if character.month_display == 7:
+    character.month_display = 0
     character.grade += 1
   if character.health < 0:
     character.health = 0
@@ -141,12 +150,14 @@ while character.status == "alive":
     print("You died")
     break
   character.school_scenarios()
-  print("\n Moves: \n a = advance a month \n")
+  print("\n Moves: \n a = advance a month \n s = go study at the library")
   while True:
     move = input("What is your next move \n")
     if move == 'a':
       print("\n \n \n \n \n \n \n \n \n \n \n")
       character.month_up()
       break
+    elif move == 's':
+      character.study()
     else:
       print("Error")
