@@ -147,21 +147,24 @@ class Person:
           break
         else:
           print("Error")
-              
-character = Person(input("What is your name"),"alive",0,0,9,gender,50,happiness,health,smarts,looks)
+                              
+character = Person(input("What is your name"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 
 character.introduce()
-
+        
 if character.gender == "alien":
   print("⏁⊑⟒ ☌⟟⍀⌰ ⏃⏁ ⏁⊑⟒ ⏚⍜⍜⏁⊑ ⌇⍜⌰⎅ ⎎⟟⎎⏁⊬ ⏚⍜⋏⎅⌇. ⌰⍜⍜☍ ⟟⋏ ⏁⊑⟒ ☊⍜⍀⋏⟒⍀ ⏁⍜ ⎎⟟⋏⎅ ⏁⊑⟒ ⏁⏃⋏ ⌇⊑⟟⍀⏁.⏁⊑⟒ ☌⍀⟒⏃⏁ ⏃⋏⏁⟟⍾⎍⟟⏁⊬ ⍜⎎ ⋏⍜⏁⊑⟟⋏☌ ⟟⌇ ⏃⌿⌿⏃⍀⟒⋏⏁ ⎎⍀⍜⋔ ⟟⏁⌇ ⏚⟒⟟⋏☌ ⌇⍜ ⎐⟟⌇⟟⏚⌰⟒ ⟟⋏ ⏁⊑⟒ ⏃☊☊⍜⎍⋏⏁⌇ ⍙⟒ ⊑⏃⎐⟒ ⍜⎎ ⏁⊑⟒ ⏚⟒☌⟟⋏⋏⟟⋏☌ ⍜⎎ ⟒⎐⟒⍀⊬ ⋏⏃⏁⟟⍜⋏. ⏁⊑⟟⌇ ⟟⌇ ⎐⟒⍀⊬ ⌿⌰⏃⟟⋏⌰⊬ ⏁⍜ ⏚⟒ ⎅⟟⌇☊⍜⎐⟒⍀⟒⎅ ⟟⋏ ⏁⊑⟒ ⎎⟟⍀⌇⏁ ⌿⏃☌⟒⌇, ⏃⋏⎅ ⌇⍜⋔⟒⏁⟟⋔⟒⌇")
   character.status = 'ded'
   print('the fbi found you')
   
 while character.status == "alive":
+  if character.month_total ==24:
+          character.status = 'graduated'
+          break
   if character.month_display == 7:
-    character.month_display = 0
+    character.month_display = 1
     character.grade += 1
-    
+        
   if character.health < 0:
     character.health = 0
   if character.health > 100:
@@ -183,12 +186,7 @@ while character.status == "alive":
   death_number = random.randint(1,death_chance)
   kill_number = random.randint(1,death_chance)
   if character.health == 0 or death_number == kill_number:
-    character.staus = "dead"
-    x = random.randint(1,2)
-    if x == 1:
-        print("You died of an advil overdose")
-    if x == 2:
-        print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good")
+    character.status = "dead"
     break
   character.school_scenarios()
   print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
@@ -204,3 +202,16 @@ while character.status == "alive":
       character.workout()
     else:
       print("Error")
+
+while character.status == "dead":
+  x = random.randint(1,2)
+  if x == 1:
+    print("You died of an advil overdose")
+    break
+  if x == 2:
+    print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good")
+    break
+while character.status == 'graduated':
+  print("Congrats you have graduated")
+  break
+
