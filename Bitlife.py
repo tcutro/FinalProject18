@@ -1,10 +1,10 @@
 import random
    
-happiness = random.randint(1,101)
-health = random.randint(1,101)
-smarts = random.randint(1,101)
-looks = random.randint(1,101)
-death_chance= 50
+happiness = random.randint(1,100)
+health = random.randint(1,100)
+smarts = random.randint(1,100)
+looks = random.randint(1,100)
+death_chance= 2
 possible_genders = ["male","female", "alien"]
 gender= random.choice(possible_genders)
 completed_scenarios = []
@@ -182,7 +182,7 @@ while character.status == "alive":
   character.stats()
   death_number = random.randint(1,death_chance)
   kill_number = random.randint(1,death_chance)
-  if death_number == kill_number:
+  if character.health == 0 or death_number == kill_number:
     character.staus = "dead"
     x = random.randint(1,2)
     if x == 1:
