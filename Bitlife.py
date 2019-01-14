@@ -1,10 +1,10 @@
 import random
-    
+   
 happiness = random.randint(1,101)
 health = random.randint(1,101)
 smarts = random.randint(1,101)
 looks = random.randint(1,101)
-death_chance= 125
+death_chance= 50
 possible_genders = ["male","female", "alien"]
 gender= random.choice(possible_genders)
 completed_scenarios = []
@@ -38,6 +38,7 @@ class Person:
 
   def school_scenarios(self):
     global completed_scenarios
+    
     if self.grade == 9:
       scenario = random.randint(1,3)
       if scenario == 1:
@@ -67,6 +68,7 @@ class Person:
               break
             else:
               print("Error")
+              
       elif scenario == 2:
         if 2 not in completed_scenarios:
           completed_scenarios.append(2)
@@ -86,6 +88,7 @@ class Person:
               break
             else:
               print("Error")
+              
       elif scenario == 3:
         if 3 not in completed_scenarios:
           completed_scenarios.append(3)
@@ -105,6 +108,7 @@ class Person:
               break
             else:
               print("Error")
+              
   def study(self):
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
@@ -112,6 +116,7 @@ class Person:
       times_studied.append(self.month_total)
       print('You went to the library to study like a good boy. Your smarts went up 10 points.')
       self.smarts += 5
+      
   def workout(self):
     if self.month_total in times_workedout:
       print("You got your swole on so hard you broke the gym. Come back at a later time.")
@@ -156,6 +161,7 @@ while character.status == "alive":
   if character.month_display == 7:
     character.month_display = 0
     character.grade += 1
+    
   if character.health < 0:
     character.health = 0
   if character.health > 100:
@@ -172,12 +178,17 @@ while character.status == "alive":
     character.looks = 0
   if character.looks > 100:
     character.looks = 100
+    
   character.stats()
   death_number = random.randint(1,death_chance)
   kill_number = random.randint(1,death_chance)
   if death_number == kill_number:
     character.staus = "dead"
-    print("You died")
+    x = random.randint(1,2)
+    if x == 1:
+        print("You died of an advil overdose")
+    if x == 2:
+        print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good")
     break
   character.school_scenarios()
   print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
