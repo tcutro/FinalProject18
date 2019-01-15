@@ -4,8 +4,8 @@ happiness = random.randint(1,100)
 health = random.randint(1,100)
 smarts = random.randint(1,100)
 looks = random.randint(1,100)
-death_chance= 2
-possible_genders = ["male","female", "alien"]
+death_chance= 200
+possible_genders = ["male","female","alien"]
 gender= random.choice(possible_genders)
 completed_scenarios = []
 times_studied = []
@@ -40,7 +40,10 @@ class Person:
     global completed_scenarios
     
     if self.grade == 9:
-      scenario = random.randint(1,3)
+      while True:
+        scenario = random.randint(1,10)
+        if scenario not in completed_scenarios:
+          break
       if scenario == 1:
         if 1 not in completed_scenarios:
           completed_scenarios.append(1)
@@ -108,7 +111,356 @@ class Person:
               break
             else:
               print("Error")
-              
+      elif scenario ==4:
+        if 4 not in completed_scenarios:
+          completed_scenarios.append(4)
+          while True:
+            x = input("You are on the way to school and you can't find your idea? What are you going to do? \n \n a= Take the L(OP) \n b= Try to sneak into school without it \n c= run back home")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==5:
+        if 5 not in completed_scenarios:
+          completed_scenarios.append(5)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==6:
+        if 6 not in completed_scenarios:
+          completed_scenarios.append(6)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==7:
+        if 7 not in completed_scenarios:
+          completed_scenarios.append(7)
+      elif scenario ==8:
+        if 8 not in completed_scenarios:
+          completed_scenarios.append(8)
+      elif scenario ==9:
+        if 9 not in completed_scenarios:
+          completed_scenarios.append(9)
+      elif scenario ==10:
+        if 10 not in completed_scenarios:
+          completed_scenarios.append(10)
+  
+    elif self.grade == 10:
+      while True:
+        scenario = random.randint(11,20)
+        if scenario not in completed_scenarios:
+          break
+      if scenario ==11:
+        if 11 not in completed_scenarios:
+          completed_scenarios.append(11)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==12:
+        if 12 not in completed_scenarios:
+          completed_scenarios.append(12)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==13:
+        if 13 not in completed_scenarios:
+          completed_scenarios.append(13)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==14:
+        if 14 not in completed_scenarios:
+          completed_scenarios.append(14)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==15:
+        if 15 not in completed_scenarios:
+          completed_scenarios.append(15)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==16:
+        if 16 not in completed_scenarios:
+          completed_scenarios.append(16)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==17:
+        if 17 not in completed_scenarios:
+          completed_scenarios.append(17)
+      elif scenario ==18:
+        if 18 not in completed_scenarios:
+          completed_scenarios.append(18)
+      elif scenario ==19:
+        if 19 not in completed_scenarios:
+          completed_scenarios.append(19)
+      elif scenario ==20:
+        if 20 not in completed_scenarios:
+          completed_scenarios.append(20)
+
+    elif self.grade == 11:
+      while True:
+        scenario = random.randint(21,30)
+        if scenario not in completed_scenarios:
+          break
+      if scenario ==21:
+        if 21 not in completed_scenarios:
+          completed_scenarios.append(21)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==22:
+        if 22 not in completed_scenarios:
+          completed_scenarios.append(22)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==23:
+        if 23 not in completed_scenarios:
+          completed_scenarios.append(23)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==24:
+        if 24 not in completed_scenarios:
+          completed_scenarios.append(24)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==25:
+        if 25 not in completed_scenarios:
+          completed_scenarios.append(25)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==26:
+        if 26 not in completed_scenarios:
+          completed_scenarios.append(26)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==27:
+        if 27 not in completed_scenarios:
+          completed_scenarios.append(27)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==28:
+        if 28 not in completed_scenarios:
+          completed_scenarios.append(28)
+      elif scenario ==29:
+        if 29 not in completed_scenarios:
+          completed_scenarios.append(29)
+      elif scenario ==30:
+        if 30 not in completed_scenarios:
+          completed_scenarios.append(30)
+
+    elif self.grade == 12:
+      while True:
+        scenario = random.randint(31,40)
+        if scenario not in completed_scenarios:
+          break
+      if scenario ==31:
+        if 31 not in completed_scenarios:
+          completed_scenarios.append(31)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==32:
+        if 32 not in completed_scenarios:
+          completed_scenarios.append(32)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==33:
+        if 33 not in completed_scenarios:
+          completed_scenarios.append(13)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==34:
+        if 34 not in completed_scenarios:
+          completed_scenarios.append(34)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==35:
+        if 35 not in completed_scenarios:
+          completed_scenarios.append(35)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==36:
+        if 36 not in completed_scenarios:
+          completed_scenarios.append(36)
+          while True:
+            x = input("")
+            if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
+              break
+            else:
+              print("Error")
+      elif scenario ==37:
+        if 37 not in completed_scenarios:
+          completed_scenarios.append(37)
+      elif scenario ==38:
+        if 38 not in completed_scenarios:
+          completed_scenarios.append(38)
+      elif scenario ==39:
+        if 39 not in completed_scenarios:
+          completed_scenarios.append(39)
+      elif scenario ==40:
+        if 40 not in completed_scenarios:
+          completed_scenarios.append(40)
+  
   def study(self):
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
@@ -215,3 +567,17 @@ while character.status == 'graduated':
   print("Congrats you have graduated")
   break
 
+
+##      elif scenario ==36:
+##        if 36 not in completed_scenarios:
+##          completed_scenarios.append(36)
+##          while True:
+##            x = input("")
+##            if x=='a':
+##              break
+##            if x=='b':
+##              break
+##            if x =='c':
+##              break
+##            else:
+##              print("Error")
