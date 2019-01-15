@@ -1,9 +1,9 @@
 import random
    
-happiness = random.randint(1,100)
-health = random.randint(1,100)
-smarts = random.randint(1,100)
-looks = random.randint(1,100)
+happiness = random.randint(25,100)
+health = random.randint(25,100)
+smarts = random.randint(25,100)
+looks = random.randint(25,100)
 death_chance= 200
 possible_genders = ["male","female","alien"]
 gender= random.choice(possible_genders)
@@ -34,7 +34,6 @@ class Person:
   def month_up(self):
     self.month_display += 1
     self.month_total += 1
-    print(f'It is the next month')
 
   def school_scenarios(self):
     global completed_scenarios
@@ -196,7 +195,7 @@ class Person:
         if 12 not in completed_scenarios:
           completed_scenarios.append(12)
           while True:
-            x = input("As you were on your way to math class you trip and start falling down the stairs. What are you going to do? \n a= try and catch yourself \n b= let yourself fall")
+            x = input("As you were on your way to math class you trip and start falling down the stairs. What are you going to do? \n a= try and catch yourself \n b= let yourself fall \n")
             if x=='a':
               print("You only fell down three stairs before you caught yourself. Your friends laughed but there was no injury.Nothing happens")
               break
@@ -211,12 +210,18 @@ class Person:
         if 13 not in completed_scenarios:
           completed_scenarios.append(13)
           while True:
-            x = input("So you went really hard in gym class and failed to notice your pit stains developing. It wasn't ")
+            x = input("So you went really hard in gym class and failed to notice your pit stains developing. It wasn't until after you changed and put on your school shirt that you saw the dark spots. What is your next move? \n a= ask someone to borrow a shirt \n b= walk around with pit stains \n c= try drying off your shirt with the air dryer \n")
             if x=='a':
+              print("One of your friends lends you their shirt but you still smell so your popularity went down 5 points")
+              self.popularity += 5
               break
             if x=='b':
+              print("Everyone saw your pit stains and tbh thats just nasty. Popularity down 100 points. Theres no way your coming back from that")
+              self.popularity -= 100
               break
             if x =='c':
+              print("Nice job thinking on your feet. You got the dark spots to go off. Your smarts went up 10 points")
+              self.smarts += 10
               break
             else:
               print("Error")
@@ -224,12 +229,18 @@ class Person:
         if 14 not in completed_scenarios:
           completed_scenarios.append(14)
           while True:
-            x = input("")
+            x = input("You are walking down the hallway and stop to tie your shoe. A group of annoying freshman than procceed to trample you. What are you doing? \n a = hunt every single one of them down and ... \n b= yell at them \n c= get over yourself \n")
             if x=='a':
+              print("Um I am now concerned but the police found out your plans because I informed them and they killed you")
+              self.status = "ded"
               break
             if x=='b':
+              print("The freshman were so scared of you that they promised never even to look in your direction again. Your happiness went up 5 points")
+              self.happiness +=5
               break
             if x =='c':
+              print("Bad decision. Never ever let freshman get away with things. Your popularity went down 5 points")
+              self.popularity -=5
               break
             else:
               print("Error")
@@ -237,12 +248,19 @@ class Person:
         if 15 not in completed_scenarios:
           completed_scenarios.append(15)
           while True:
-            x = input("")
+            x = input("As you are walking into school you fall into the mud and it now looks like you pooped your pants. Whats your next move? \n a= cry and call your mom \n b= run to the bathroom and try to get it off \n c= put on your gym shorts \n")
             if x=='a':
+              print("Please stop acting like this its disgusting. Popularity down 5 points")
+              self.popularity -=5
               break
             if x=='b':
+              print("I mean you did not get the stain out but it ended up looking like a cool design so your popularity and smarts go up 10 points")
+              self.popularity +=10
+              self.smarts +=10
               break
             if x =='c':
+              print("Finally, you made a normal decision. However it is a little cold out so your happiness is down 5 points")
+              self.happiness -=5
               break
             else:
               print("Error")
@@ -443,7 +461,7 @@ while character.status == "alive":
   if character.month_total ==24:
           character.status = 'graduated'
           break
-  if character.month_display == 7:
+  if character.month_display == 6:
     character.month_display = 1
     character.grade += 1
         
@@ -471,8 +489,11 @@ while character.status == "alive":
     character.status = "dead"
     break
   character.school_scenarios()
-  print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
+  if character.status == "ded":
+    break
+  
   while True:
+    print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
     move = input("What is your next move \n")
     if move == 'a':
       print("\n \n \n \n \n \n \n \n \n \n \n")
