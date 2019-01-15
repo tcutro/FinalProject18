@@ -41,7 +41,7 @@ class Person:
     
     if self.grade == 9:
       while True:
-        scenario = random.randint(1,10)
+        scenario = random.randint(1,6)
         if scenario not in completed_scenarios:
           break
       if scenario == 1:
@@ -160,7 +160,7 @@ class Person:
               self.happiness -= 5
               self.popularity -= 5
               self.smarts -= 5
-              self.looka -= 5
+              self.looks -= 5
               break
             if x=='b':
               print("You made fun of the senior's ugly haircut causing all his friends to laugh. You gained their respect. Popularity up 10 points")
@@ -181,12 +181,14 @@ class Person:
         if 11 not in completed_scenarios:
           completed_scenarios.append(11)
           while True:
-            x = input("")
+            x = input("Its time for the AutoCad Exam. Are you ready to take it? \n a = yes \n b= no \n")
             if x=='a':
+              print("Congrats! You failed. We both know you were not ready! Your smarts went down 5 points for failing and another 5 points for being cocky.")
+              self.smarts -= 10
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Congrats! You failed, but you knew you were going to so since you know yourself so well your smarts went up 10 points")
+              smarts += 10
               break
             else:
               print("Error")
@@ -194,12 +196,14 @@ class Person:
         if 12 not in completed_scenarios:
           completed_scenarios.append(12)
           while True:
-            x = input("")
+            x = input("As you were on your way to math class you trip and start falling down the stairs. What are you going to do? \n a= try and catch yourself \n b= let yourself fall")
             if x=='a':
+              print("You only fell down three stairs before you caught yourself. Your friends laughed but there was no injury.Nothing happens")
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Um so you fell down both flights of stairs and got a black eye and bruised ego. Also, someone took a video and sent it to the whole school. Your popularity and looks went down 5 points")
+              self.popularity -= 5
+              self.looks -= 5
               break
             else:
               print("Error")
@@ -207,7 +211,7 @@ class Person:
         if 13 not in completed_scenarios:
           completed_scenarios.append(13)
           while True:
-            x = input("")
+            x = input("So you went really hard in gym class and failed to notice your pit stains developing. It wasn't ")
             if x=='a':
               break
             if x=='b':
