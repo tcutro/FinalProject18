@@ -274,12 +274,14 @@ class Person:
         if 21 not in completed_scenarios:
           completed_scenarios.append(21)
           while True:
-            x = input("")
+            x = input("Its SAT time. Did you get a tutor? \n a= yes \n b= no \n")
             if x=='a':
+              print("Since you got a tutor you actually did not fail congrats. You might actually go to college. Your smarts went up 10 points")
+              self.smarts += 10
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Why in the world did you not get a tutor? Your smarts went down 10 points")
+              self.smarts -= 10
               break
             else:
               print("Error")
@@ -287,12 +289,18 @@ class Person:
         if 22 not in completed_scenarios:
           completed_scenarios.append(22)
           while True:
-            x = input("")
+            x = input("Its time to meet with your guidance counselor about your future. Have you filled out the college packet? \n a = yes \n b= no \n c= college packet? \n")
             if x=='a':
+              print("Good you were actually prepared. Smarts are up 5 points")
+              self.smarts += 5
               break
             if x=='b':
+              print("Not surprising. Your smarts are down 5 points")
+              self.smarts -= 5
               break
             if x =='c':
+              print("You should not be at this school. \n Goodbye!")
+              self.status = "ded"
               break
             else:
               print("Error")
@@ -300,12 +308,18 @@ class Person:
         if 23 not in completed_scenarios:
           completed_scenarios.append(23)
           while True:
-            x = input("")
+            x = input("Its spring break and you have not started your Sanservino timeline yet. Are you going to? \n a= yes \n b= no \n c= I already finished \n")
             if x=='a':
+              print("Good thinking. Your smarts went up 10 points")
+              self.smarts += 10
               break
             if x=='b':
+              print("Honestly don't blame you. The 72 hour challenge is the wave. Your happiness is up 5 points")
+              self.hapinness += 10
               break
             if x =='c':
+              print("You are the kid no one likes. Your popularity is down 10 points")
+              self.popularity -= 10
               break
             else:
               print("Error")
@@ -313,12 +327,18 @@ class Person:
         if 24 not in completed_scenarios:
           completed_scenarios.append(24)
           while True:
-            x = input("")
+            x = input("You are working on your favorite project ever. The TECH MIDTERM!!!!! How much do you love it??? \n a= so much \n b= so much \n c= so much \n")
             if x=='a':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             if x=='b':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             if x =='c':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             else:
               print("Error")
@@ -326,12 +346,13 @@ class Person:
         if 25 not in completed_scenarios:
           completed_scenarios.append(25)
           while True:
-            x = input("")
+            x = input("Its me. The game. Just wanted to check in and say hi. IK junior year is rough and your probably struggling so here is 10 points in everything. :) Have a good day \n a = accept the gift \n")
             if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
+              self.health += 10
+              self.happiness += 10
+              self.popularity += 10
+              self.smarts += 10
+              self.looks += 10
               break
             else:
               print("Error")
