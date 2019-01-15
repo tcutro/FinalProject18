@@ -12,6 +12,10 @@ pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(0, 10, 500, -200), 70)
 pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
 pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
 
+a = 24
+b = 56
+c = 78
+d = 97
 def health_bars(player_stats):
     self.health = 100
     self.look = 100
@@ -26,10 +30,12 @@ def health_bars(player_stats):
         col = (255, 111, 0)
     elif self.health >= 1:
         col = (178, 34, 34)
-    width = int(290 * self.health/100)
-    self.healthbar = pygame.Rect(195, 585, 290, 25)
-    if self.health <= 100:
-        pygame.graw.rect(col, self.health_bar)
+    max health = 100
+    current health = a
+    percentage = current health/max health
+    
+    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 707, 290, 25), 0)
+
  
 pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 585, 290, 25), 0)
 
@@ -65,6 +71,7 @@ pygame.draw.line(screen, (93, 109, 126), [310,450], [310,550], 2)
 
 pygame.draw.line(screen, (28, 40, 51), [0,90], [500,90], 1)
 
+pygame.draw.arc()
 
 
 pygame.font.init()
@@ -100,3 +107,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             runing = False
+x = "male"
+
+if x == "male":
+
+elif x == "female:
