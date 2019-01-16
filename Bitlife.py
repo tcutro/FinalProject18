@@ -1,9 +1,9 @@
 import random
    
-happiness = random.randint(1,100)
-health = random.randint(1,100)
-smarts = random.randint(1,100)
-looks = random.randint(1,100)
+happiness = random.randint(25,100)
+health = random.randint(25,100)
+smarts = random.randint(25,100)
+looks = random.randint(25,100)
 death_chance= 200
 possible_genders = ["male","female","alien"]
 gender= random.choice(possible_genders)
@@ -34,14 +34,13 @@ class Person:
   def month_up(self):
     self.month_display += 1
     self.month_total += 1
-    print(f'It is the next month')
 
   def school_scenarios(self):
     global completed_scenarios
     
     if self.grade == 9:
       while True:
-        scenario = random.randint(1,10)
+        scenario = random.randint(1,6)
         if scenario not in completed_scenarios:
           break
       if scenario == 1:
@@ -87,7 +86,7 @@ class Person:
               break
             elif x == 'c':
               self.popularity += 5
-              print("Your chill with your groupmates now. You gained 5 popularity points")
+              print("You're chill with your groupmates now. You gained 5 popularity points")
               break
             else:
               print("Error")
@@ -115,12 +114,18 @@ class Person:
         if 4 not in completed_scenarios:
           completed_scenarios.append(4)
           while True:
-            x = input("You are on the way to school and you can't find your idea? What are you going to do? \n \n a= Take the L(OP) \n b= Try to sneak into school without it \n c= run back home")
+            x = input("You are on the way to school and you can't find your idea? What are you going to do? \n \n a= Take the L(OP) \n b= Try to sneak into school without it \n c= run back home \n")
             if x=='a':
+              print("Well good job losng your ID bozo. It turns out that during your LOP they gave out free food in the cafeteria. You lost 10 points of happiness")
+              self.happiness -=10
               break
             if x=='b':
+              print("You got caught trying to sneak into school. Now you have LOP for the whole week. You lost 20 points of happiness")
+              self.happiness -=20
               break
             if x =='c':
+              print("You found your ID! One problem though you got back to school late, but who really cares about that. Happiness is up 10 points.")
+              self.happiness += 10
               break
             else:
               print("Error")
@@ -128,12 +133,18 @@ class Person:
         if 5 not in completed_scenarios:
           completed_scenarios.append(5)
           while True:
-            x = input("")
+            x = input("You are in the cafeteria, but you don't see any of your friends. What are you going to do? \n a= eat lunch in the bathroom \n b= make new friends \n c= go talk to a teacher about something \n ")
             if x=='a':
+              print("Wow, you really are a loser. Someone saw you eating lunch on the toilet and told the whole school. Popularity down 10 points")
+              self.popularity -=10
               break
             if x=='b':
+              print("Congrats you were social for once. You actually made some new friends. Popularity up 10 points")
+              self.popularity +=10
               break
             if x =='c':
+              print("I mean this isn't that sad I guess. Good job for being a good student? Your smarts went up 5 points")
+              self.smarts +=5
               break
             else:
               print("Error")
@@ -141,43 +152,42 @@ class Person:
         if 6 not in completed_scenarios:
           completed_scenarios.append(6)
           while True:
-            x = input("")
+            x = input("So you are walking down the senior hallway and you see one of them trip you and then look at their friends and laugh. Whats your next move? \n a= run away crying \n b= make fun of the senior \n c= don't say anything and do not make eye contact with anyone for the rest of the year \n") 
             if x=='a':
+              print("Are you kidding me? This is the saddest thing ever. Everything is going down 5 points")
+              self.health -= 5
+              self.happiness -= 5
+              self.popularity -= 5
+              self.smarts -= 5
+              self.looks -= 5
               break
             if x=='b':
+              print("You made fun of the senior's ugly haircut causing all his friends to laugh. You gained their respect. Popularity up 10 points")
+              self.popularity += 10
               break
             if x =='c':
+              print("Um. Ok I guess. This is weird. IDK what to do here so nothing is changing")
               break
             else:
               print("Error")
-      elif scenario ==7:
-        if 7 not in completed_scenarios:
-          completed_scenarios.append(7)
-      elif scenario ==8:
-        if 8 not in completed_scenarios:
-          completed_scenarios.append(8)
-      elif scenario ==9:
-        if 9 not in completed_scenarios:
-          completed_scenarios.append(9)
-      elif scenario ==10:
-        if 10 not in completed_scenarios:
-          completed_scenarios.append(10)
-  
+
     elif self.grade == 10:
       while True:
-        scenario = random.randint(11,20)
+        scenario = random.randint(11,15)
         if scenario not in completed_scenarios:
           break
       if scenario ==11:
         if 11 not in completed_scenarios:
           completed_scenarios.append(11)
           while True:
-            x = input("")
+            x = input("Its time for the AutoCad Exam. Are you ready to take it? \n a = yes \n b= no \n")
             if x=='a':
+              print("Congrats! You failed. We both know you were not ready! Your smarts went down 5 points for failing and another 5 points for being cocky.")
+              self.smarts -= 10
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Congrats! You failed, but you knew you were going to so since you know yourself so well your smarts went up 10 points")
+              smarts += 10
               break
             else:
               print("Error")
@@ -185,12 +195,14 @@ class Person:
         if 12 not in completed_scenarios:
           completed_scenarios.append(12)
           while True:
-            x = input("")
+            x = input("As you were on your way to math class you trip and start falling down the stairs. What are you going to do? \n a= try and catch yourself \n b= let yourself fall \n")
             if x=='a':
+              print("You only fell down three stairs before you caught yourself. Your friends laughed but there was no injury.Nothing happens")
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Um so you fell down both flights of stairs and got a black eye and bruised ego. Also, someone took a video and sent it to the whole school. Your popularity and looks went down 5 points")
+              self.popularity -= 5
+              self.looks -= 5
               break
             else:
               print("Error")
@@ -198,12 +210,18 @@ class Person:
         if 13 not in completed_scenarios:
           completed_scenarios.append(13)
           while True:
-            x = input("")
+            x = input("So you went really hard in gym class and failed to notice your pit stains developing. It wasn't until after you changed and put on your school shirt that you saw the dark spots. What is your next move? \n a= ask someone to borrow a shirt \n b= walk around with pit stains \n c= try drying off your shirt with the air dryer \n")
             if x=='a':
+              print("One of your friends lends you their shirt but you still smell so your popularity went down 5 points")
+              self.popularity += 5
               break
             if x=='b':
+              print("Everyone saw your pit stains and tbh thats just nasty. Popularity down 100 points. Theres no way your coming back from that")
+              self.popularity -= 100
               break
             if x =='c':
+              print("Nice job thinking on your feet. You got the dark spots to go off. Your smarts went up 10 points")
+              self.smarts += 10
               break
             else:
               print("Error")
@@ -211,12 +229,18 @@ class Person:
         if 14 not in completed_scenarios:
           completed_scenarios.append(14)
           while True:
-            x = input("")
+            x = input("You are walking down the hallway and stop to tie your shoe. A group of annoying freshman than procceed to trample you. What are you doing? \n a = hunt every single one of them down and ... \n b= yell at them \n c= get over yourself \n")
             if x=='a':
+              print("Um I am now concerned but the police found out your plans because I informed them and they killed you")
+              self.status = "ded"
               break
             if x=='b':
+              print("The freshman were so scared of you that they promised never even to look in your direction again. Your happiness went up 5 points")
+              self.happiness +=5
               break
             if x =='c':
+              print("Bad decision. Never ever let freshman get away with things. Your popularity went down 5 points")
+              self.popularity -=5
               break
             else:
               print("Error")
@@ -224,56 +248,40 @@ class Person:
         if 15 not in completed_scenarios:
           completed_scenarios.append(15)
           while True:
-            x = input("")
+            x = input("As you are walking into school you fall into the mud and it now looks like you pooped your pants. Whats your next move? \n a= cry and call your mom \n b= run to the bathroom and try to get it off \n c= put on your gym shorts \n")
             if x=='a':
+              print("Please stop acting like this its disgusting. Popularity down 5 points")
+              self.popularity -=5
               break
             if x=='b':
+              print("I mean you did not get the stain out but it ended up looking like a cool design so your popularity and smarts go up 10 points")
+              self.popularity +=10
+              self.smarts +=10
               break
             if x =='c':
+              print("Finally, you made a normal decision. However it is a little cold out so your happiness is down 5 points")
+              self.happiness -=5
               break
             else:
               print("Error")
-      elif scenario ==16:
-        if 16 not in completed_scenarios:
-          completed_scenarios.append(16)
-          while True:
-            x = input("")
-            if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
-              break
-            else:
-              print("Error")
-      elif scenario ==17:
-        if 17 not in completed_scenarios:
-          completed_scenarios.append(17)
-      elif scenario ==18:
-        if 18 not in completed_scenarios:
-          completed_scenarios.append(18)
-      elif scenario ==19:
-        if 19 not in completed_scenarios:
-          completed_scenarios.append(19)
-      elif scenario ==20:
-        if 20 not in completed_scenarios:
-          completed_scenarios.append(20)
-
+              
     elif self.grade == 11:
       while True:
-        scenario = random.randint(21,30)
+        scenario = random.randint(21,25)
         if scenario not in completed_scenarios:
           break
       if scenario ==21:
         if 21 not in completed_scenarios:
           completed_scenarios.append(21)
           while True:
-            x = input("")
+            x = input("Its SAT time. Did you get a tutor? \n a= yes \n b= no \n")
             if x=='a':
+              print("Since you got a tutor you actually did not fail congrats. You might actually go to college. Your smarts went up 10 points")
+              self.smarts += 10
               break
             if x=='b':
-              break
-            if x =='c':
+              print("Why in the world did you not get a tutor? Your smarts went down 10 points")
+              self.smarts -= 10
               break
             else:
               print("Error")
@@ -281,12 +289,18 @@ class Person:
         if 22 not in completed_scenarios:
           completed_scenarios.append(22)
           while True:
-            x = input("")
+            x = input("Its time to meet with your guidance counselor about your future. Have you filled out the college packet? \n a = yes \n b= no \n c= college packet? \n")
             if x=='a':
+              print("Good you were actually prepared. Smarts are up 5 points")
+              self.smarts += 5
               break
             if x=='b':
+              print("Not surprising. Your smarts are down 5 points")
+              self.smarts -= 5
               break
             if x =='c':
+              print("You should not be at this school. \n Goodbye!")
+              self.status = "ded"
               break
             else:
               print("Error")
@@ -294,12 +308,18 @@ class Person:
         if 23 not in completed_scenarios:
           completed_scenarios.append(23)
           while True:
-            x = input("")
+            x = input("Its spring break and you have not started your Sanservino timeline yet. Are you going to? \n a= yes \n b= no \n c= I already finished \n")
             if x=='a':
+              print("Good thinking. Your smarts went up 10 points")
+              self.smarts += 10
               break
             if x=='b':
+              print("Honestly don't blame you. The 72 hour challenge is the wave. Your happiness is up 5 points")
+              self.hapinness += 10
               break
             if x =='c':
+              print("You are the kid no one likes. Your popularity is down 10 points")
+              self.popularity -= 10
               break
             else:
               print("Error")
@@ -307,12 +327,18 @@ class Person:
         if 24 not in completed_scenarios:
           completed_scenarios.append(24)
           while True:
-            x = input("")
+            x = input("You are working on your favorite project ever. The TECH MIDTERM!!!!! How much do you love it??? \n a= so much \n b= so much \n c= so much \n")
             if x=='a':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             if x=='b':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             if x =='c':
+              print("YESSSS. Your happiness is up 10 points")
+              self.happiness += 10
               break
             else:
               print("Error")
@@ -320,54 +346,20 @@ class Person:
         if 25 not in completed_scenarios:
           completed_scenarios.append(25)
           while True:
-            x = input("")
+            x = input("Its me. The game. Just wanted to check in and say hi. IK junior year is rough and your probably struggling so here is 10 points in everything. :) Have a good day \n a = accept the gift \n")
             if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
+              self.health += 10
+              self.happiness += 10
+              self.popularity += 10
+              self.smarts += 10
+              self.looks += 10
               break
             else:
               print("Error")
-      elif scenario ==26:
-        if 26 not in completed_scenarios:
-          completed_scenarios.append(26)
-          while True:
-            x = input("")
-            if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
-              break
-            else:
-              print("Error")
-      elif scenario ==27:
-        if 27 not in completed_scenarios:
-          completed_scenarios.append(27)
-          while True:
-            x = input("")
-            if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
-              break
-            else:
-              print("Error")
-      elif scenario ==28:
-        if 28 not in completed_scenarios:
-          completed_scenarios.append(28)
-      elif scenario ==29:
-        if 29 not in completed_scenarios:
-          completed_scenarios.append(29)
-      elif scenario ==30:
-        if 30 not in completed_scenarios:
-          completed_scenarios.append(30)
 
     elif self.grade == 12:
       while True:
-        scenario = random.randint(31,40)
+        scenario = random.randint(31,35)
         if scenario not in completed_scenarios:
           break
       if scenario ==31:
@@ -398,7 +390,7 @@ class Person:
               print("Error")
       elif scenario ==33:
         if 33 not in completed_scenarios:
-          completed_scenarios.append(13)
+          completed_scenarios.append(33)
           while True:
             x = input("")
             if x=='a':
@@ -435,38 +427,14 @@ class Person:
               break
             else:
               print("Error")
-      elif scenario ==36:
-        if 36 not in completed_scenarios:
-          completed_scenarios.append(36)
-          while True:
-            x = input("")
-            if x=='a':
-              break
-            if x=='b':
-              break
-            if x =='c':
-              break
-            else:
-              print("Error")
-      elif scenario ==37:
-        if 37 not in completed_scenarios:
-          completed_scenarios.append(37)
-      elif scenario ==38:
-        if 38 not in completed_scenarios:
-          completed_scenarios.append(38)
-      elif scenario ==39:
-        if 39 not in completed_scenarios:
-          completed_scenarios.append(39)
-      elif scenario ==40:
-        if 40 not in completed_scenarios:
-          completed_scenarios.append(40)
-  
+
+
   def study(self):
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
     else:
       times_studied.append(self.month_total)
-      print('You went to the library to study like a good boy. Your smarts went up 10 points.')
+      print('You went to the library to study like a good boy. Your smarts went up 5 points.')
       self.smarts += 5
       
   def workout(self):
@@ -480,6 +448,7 @@ class Person:
         if y == 1:
           print("Nice job bozo. You injured yourself at the gym. Your health is now down 10 points.")
           self.health -= 10
+          break
         elif x == 'c':
           print("The only other time I have you seen you ran that fast is into Wendy's when you heard they were having a deal. But hey your looks and health went up 5 points")
           self.looks += 5
@@ -513,7 +482,7 @@ while character.status == "alive":
   if character.month_total ==24:
           character.status = 'graduated'
           break
-  if character.month_display == 7:
+  if character.month_display == 6:
     character.month_display = 1
     character.grade += 1
         
@@ -541,8 +510,11 @@ while character.status == "alive":
     character.status = "dead"
     break
   character.school_scenarios()
-  print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
+  if character.status == "ded":
+    break
+  
   while True:
+    print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
     move = input("What is your next move \n")
     if move == 'a':
       print("\n \n \n \n \n \n \n \n \n \n \n")
