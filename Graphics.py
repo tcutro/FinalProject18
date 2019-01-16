@@ -1,5 +1,9 @@
 import pygame
+import random
 from pygame.locals import*
+
+pygame.init
+pygame.font.init()
 
 background_color = (255,255,255)
 (width, height) = (500, 800)
@@ -12,31 +16,6 @@ pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(0, 10, 500, -200), 70)
 pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
 pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
 
-a = 24
-b = 56
-c = 78
-d = 97
-def health_bars(player_stats):
-    self.health = 100
-    self.look = 100
-    self.personality = 100
-    self.smarts = 100
-    if self.health <= 0:
-        self.kill()
-        
-    if self.health >= 31:
-        col = (46, 204, 113)
-    elif self.health >= 13:
-        col = (255, 111, 0)
-    elif self.health >= 1:
-        col = (178, 34, 34)
-    max health = 100
-    current health = a
-    percentage = current health/max health
-    
-    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 707, 290, 25), 0)
-
- 
 pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 585, 290, 25), 0)
 
 pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 625, 290, 25), 0)
@@ -71,10 +50,78 @@ pygame.draw.line(screen, (93, 109, 126), [310,450], [310,550], 2)
 
 pygame.draw.line(screen, (28, 40, 51), [0,90], [500,90], 1)
 
-pygame.draw.arc()
+max_health = 100
+current_health = random.randrange(0, 100)
+percentage = current_health/max_health
 
+if current_health > 31:
+    col = (46, 204, 113)
+elif current_health > 13:
+    col = (255, 111, 0)
+else:
+    col = (178, 34, 34)
+        
+pygame.draw.rect(screen, col, pygame.Rect(197, 707, 290*percentage, 25), 0)
 
-pygame.font.init()
+percentage2 = int(current_health/max_health * 100)
+myfont = pygame.font.SysFont('Chunkfive', 28)
+textsurface = myfont.render(str(percentage2), False, (255,255,255))
+screen.blit(textsurface,(197, 707, 290*percentage, 25))
+
+max_health = 100
+current_health = random.randrange(0, 100)
+percentage = current_health/max_health
+
+if current_health > 31:
+    col = (46, 204, 113)
+elif current_health > 13:
+    col = (255, 111, 0)
+else:
+    col = (178, 34, 34)
+    
+pygame.draw.rect(screen, col, pygame.Rect(197, 665, 290*percentage, 25), 0)
+
+percentage2 = int(current_health/max_health * 100)
+myfont = pygame.font.SysFont('Chunkfive', 28)
+textsurface = myfont.render(str(percentage2), False, (255,255,255))
+screen.blit(textsurface,(197, 665, 290*percentage, 25))
+
+max_health = 100
+current_health = random.randrange(0, 100)
+percentage = current_health/max_health
+
+if current_health > 31:
+    col = (46, 204, 113)
+elif current_health > 13:
+    col = (255, 111, 0)
+else:
+    col = (178, 34, 34)
+
+pygame.draw.rect(screen, col, pygame.Rect(197, 625, 290*percentage, 25), 0)
+
+percentage2 = int(current_health/max_health * 100)
+myfont = pygame.font.SysFont('Chunkfive', 28)
+textsurface = myfont.render(str(percentage2), False, (255,255,255))
+screen.blit(textsurface,(197, 625, 290*percentage, 25))
+
+max_health = 100
+current_health = random.randrange(0, 100)
+percentage = current_health/max_health
+
+if current_health > 31:
+    col = (46, 204, 113)
+elif current_health > 13:
+    col = (255, 111, 0)
+else:
+    col = (178, 34, 34)
+
+pygame.draw.rect(screen, col, pygame.Rect(197, 585, 290*percentage, 25), 0)
+
+percentage2 = int(current_health/max_health * 100)
+myfont = pygame.font.SysFont('Chunkfive', 28)
+textsurface = myfont.render(str(percentage2), False, (255,255,255))
+screen.blit(textsurface,(197, 585, 290*percentage, 25))
+
 myfont = pygame.font.SysFont('Chunkfive', 40)
 textsurface = myfont.render('BitSkool', False, (255, 255, 0))
 screen.blit(textsurface,(200,10))
@@ -89,17 +136,45 @@ screen.blit(textsurface,(93,625))
 
 myfont = pygame.font.SysFont('Chunkfive', 35)
 textsurface = myfont.render('Smarts', False, (144, 148, 151))
-screen.blit(textsurface,(87,665))
+screen.blit(textsurface,(83,665))
 
 myfont = pygame.font.SysFont('Chunkfive', 35)
-textsurface = myfont.render('Popularity', False, (144, 148, 151))
-screen.blit(textsurface,(50,705))
+textsurface = myfont.render('Looks', False, (144, 148, 151))
+screen.blit(textsurface,(100,705))
 
 myfont = pygame.font.SysFont('Chunkfive', 35)
 textsurface = myfont.render('Month', False, (253, 254, 254))
 screen.blit(textsurface,(210,510))
 
-pygame.init()
+popularity = random.randrange(0, 100)
+myfont = pygame.font.SysFont('Chunkfive', 28)
+textsurface = myfont.render(str(popularity), False, (40, 116, 166))
+screen.blit(textsurface,(475,50))
+
+myfont = pygame.font.SysFont('Chunkfive', 25)
+textsurface = myfont.render('Popularity', False, (40, 116, 166))
+screen.blit(textsurface,(410,70))
+
+myfont = pygame.font.SysFont('Chunkfive', 25)
+textsurface = myfont.render('Magnet', False, (255, 255, 255))
+screen.blit(textsurface,(20,520))
+
+smile = pygame.transform.scale(pygame.image.load("Untitled.PNG"), [25,25])
+screen.blit(smile,(170,583))
+
+heart = pygame.transform.scale(pygame.image.load("Untitled 2.PNG"), [25,25])
+screen.blit(heart,(170,623))
+
+brain = pygame.transform.scale(pygame.image.load("Untitled 3.PNG"), [25,25])
+screen.blit(brain,(169,663))
+
+weather = pygame.transform.scale(pygame.image.load("Untitled 4.PNG"), [25,25])
+screen.blit(weather,(169,703))
+
+school = pygame.transform.scale(pygame.image.load("cutmypic.PNG"), [45,45])
+screen.blit(school,(25,470))
+    
+        
 pygame.display.flip()
 
 running = True
@@ -107,8 +182,3 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             runing = False
-x = "male"
-
-if x == "male":
-
-elif x == "female:
