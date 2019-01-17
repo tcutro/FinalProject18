@@ -1,6 +1,6 @@
 import random
    
-happiness = random.randint(25,100)
+happiness = 110
 health = random.randint(25,100)
 smarts = random.randint(25,100)
 looks = random.randint(25,100)
@@ -496,6 +496,24 @@ class Person:
           break
         else:
           print("Error")
+  def stats_constraints(self):
+    if self.health < 0:
+      self.health = 0
+    if self.health > 100:
+      self.health = 100
+    if self.happiness < 0:
+      self.happiness = 0
+    if self.happiness > 100:
+      self.happiness = 100
+    if self.smarts < 0:
+      self.smarts = 0
+    if self.smarts > 100:
+      self.smarts = 100
+    if self.looks < 0:
+      self.looks = 0
+    if self.looks > 100:
+      self.looks = 100
+    
                               
 character = Person(input("What is your name"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 
@@ -514,22 +532,7 @@ while character.status == "alive":
     character.month_display = 1
     character.grade += 1
         
-  if character.health < 0:
-    character.health = 0
-  if character.health > 100:
-    character.health = 100
-  if character.happiness < 0:
-    character.happiness = 0
-  if character.happiness > 100:
-    character.happiness = 100
-  if character.smarts < 0:
-    character.smarts = 0
-  if character.smarts > 100:
-    character.smarts = 100
-  if character.looks < 0:
-    character.looks = 0
-  if character.looks > 100:
-    character.looks = 100
+  character.stats_constraints()
     
   character.stats()
   death_number = random.randint(1,death_chance)
@@ -568,16 +571,4 @@ while character.status == 'graduated':
   break
 
 
-##      elif scenario ==36:
-##        if 36 not in completed_scenarios:
-##          completed_scenarios.append(36)
-##          while True:
-##            x = input("")
-##            if x=='a':
-##              break
-##            if x=='b':
-##              break
-##            if x =='c':
-##              break
-##            else:
-##              print("Error")
+
