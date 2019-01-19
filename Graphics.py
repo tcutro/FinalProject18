@@ -174,7 +174,8 @@ screen.blit(weather,(169,703))
 school = pygame.transform.scale(pygame.image.load("cutmypic.PNG"), [45,45])
 screen.blit(school,(25,470))
     
-        
+input("What's your name?")
+
 pygame.display.flip()
 
 running = True

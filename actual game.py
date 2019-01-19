@@ -1,22 +1,15 @@
 import random
-
-import pygame
-import random
-from pygame.locals import*
-
+   
 happiness = random.randint(25,100)
 health = random.randint(25,100)
 smarts = random.randint(25,100)
 looks = random.randint(25,100)
-popularity = random.randint(25,100)
-death_chance= 50
+death_chance= 200
 possible_genders = ["male","female","alien"]
-gender = random.choice(possible_genders)
+gender= random.choice(possible_genders)
 completed_scenarios = []
 times_studied = []
 times_workedout = []
-
-
 class Person:
   def __init__(self,name,status,month_display,month_total,grade,gender,popularity,happiness,health,smarts,looks):
     self.name = name
@@ -33,14 +26,12 @@ class Person:
     
   def introduce(self):
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
-
   def stats(self):
       print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
   
   def month_up(self):
     self.month_display += 1
     self.month_total += 1
-
   def school_scenarios(self):
     global completed_scenarios
     
@@ -176,7 +167,6 @@ class Person:
               break
             else:
               print("Error")
-
     elif self.grade == 10:
       while True:
         scenario = random.randint(11,15)
@@ -280,12 +270,15 @@ class Person:
         if 21 not in completed_scenarios:
           completed_scenarios.append(21)
           while True:
+            x = input("")
             x = input("Its SAT time. Did you get a tutor? \n a= yes \n b= no \n")
             if x=='a':
               print("Since you got a tutor you actually did not fail congrats. You might actually go to college. Your smarts went up 10 points")
               self.smarts += 10
               break
             if x=='b':
+              break
+            if x =='c':
               print("Why in the world did you not get a tutor? Your smarts went down 10 points")
               self.smarts -= 10
               break
@@ -295,6 +288,7 @@ class Person:
         if 22 not in completed_scenarios:
           completed_scenarios.append(22)
           while True:
+            x = input("")
             x = input("Its time to meet with your guidance counselor about your future. Have you filled out the college packet? \n a = yes \n b= no \n c= college packet? \n")
             if x=='a':
               print("Good you were actually prepared. Smarts are up 5 points")
@@ -314,6 +308,7 @@ class Person:
         if 23 not in completed_scenarios:
           completed_scenarios.append(23)
           while True:
+            x = input("")
             x = input("Its spring break and you have not started your Sanservino timeline yet. Are you going to? \n a= yes \n b= no \n c= I already finished \n")
             if x=='a':
               print("Good thinking. Your smarts went up 10 points")
@@ -333,6 +328,7 @@ class Person:
         if 24 not in completed_scenarios:
           completed_scenarios.append(24)
           while True:
+            x = input("")
             x = input("You are working on your favorite project ever. The TECH MIDTERM!!!!! How much do you love it??? \n a= so much \n b= so much \n c= so much \n")
             if x=='a':
               print("YESSSS. Your happiness is up 10 points")
@@ -352,8 +348,13 @@ class Person:
         if 25 not in completed_scenarios:
           completed_scenarios.append(25)
           while True:
+            x = input("")
             x = input("Its me. The game. Just wanted to check in and say hi. IK junior year is rough and your probably struggling so here is 10 points in everything. :) Have a good day \n a = accept the gift \n")
             if x=='a':
+              break
+            if x=='b':
+              break
+            if x =='c':
               self.health += 10
               self.happiness += 10
               self.popularity += 10
@@ -362,7 +363,6 @@ class Person:
               break
             else:
               print("Error")
-
     elif self.grade == 12:
       while True:
         scenario = random.randint(31,35)
@@ -372,18 +372,12 @@ class Person:
         if 31 not in completed_scenarios:
           completed_scenarios.append(31)
           while True:
-            x = input("You are sitting in the senior hallway and a freshman steps on your shoe. What are you going to do? \n a= let it go \n b= yell at the freshman \n c= cry \n")
+            x = input("")
             if x=='a':
-              print("How dare you let a freshman do that. Be ashamed of yourself. Popularity is down 10 points")
-              self.popularity -=10
               break
             if x=='b':
-              print("Good job. Put them in their place. Everyone applauds you for this. Popularity goes up 20 points")
-              self.popularity +=20
               break
             if x =='c':
-              print("Why just why? Popularity is down 15 points")
-              self.popularity -=15
               break
             else:
               print("Error")
@@ -391,18 +385,12 @@ class Person:
         if 32 not in completed_scenarios:
           completed_scenarios.append(32)
           while True:
-            x = input("You get up to go to the bathroom and when you come back your phone is gone. What are you gonna do? \n a= scream at everyone \n b= use find my iphone \n c= pretend you don't notice. \n")
+            x = input("")
             if x=='a':
-              print("Ok Calm Down. You will survive. But everyone gets scared and they give you your phone back, but still weird. Popularity is down 5 points")
-              self.popularity -= 5
               break
             if x=='b':
-              print("Whoever stole your phone is 5 steps ahead of you because they turned it off. Nice try. Smarts are now down 10 points.")
-              self.smarts -= 10
               break
             if x =='c':
-              print("Smart move. The person who took your phone got bored so they gave it back to you. Smarts are up 10 points.")
-              self.smarts += 10
               break
             else:
               print("Error")
@@ -410,16 +398,12 @@ class Person:
         if 33 not in completed_scenarios:
           completed_scenarios.append(33)
           while True:
-            x = input("You are going to the bathroom and try to flush. Oh no. You clogged the toilet. What's your next move? \n a= tell the janitor \n b= pretend it never happened \n c= flush again  \n")
+            x = input("")
             if x=='a':
-              print("Someone heard you tell the janitor. Now the whole school knows. Popularity is down 10 points")
-              self.popularity -= 10
               break
             if x=='b':
-              print("I do not blame you. I did not see anything so nothing happens.")
-            if x== 'c':
-              print("Well that was stupid. When has that ever worked. You flood the school. Smarts are down 5 points")
-              self.smarts += 10
+              break
+            if x =='c':
               break
             else:
               print("Error")
@@ -427,18 +411,12 @@ class Person:
         if 34 not in completed_scenarios:
           completed_scenarios.append(34)
           while True:
-            x = input("You are in a rush because you are late to school and accidently door ding the principal. What are you going to do? \n a= move your car \n b= tell the principal \n c= hope he does not notice")
+            x = input("")
             if x=='a':
-              print("Um nice try bozo there are cameras and they saw the whole thing. You got a month of detention. Happiness is down 10 points")
-              self.happiness -= 10              
               break
             if x=='b':
-              print("He respected you for telling him but still got angry. You got detention for the week. Your happiness is down 5 points")
-              self.happiness -= 5
               break
             if x =='c':
-              print("So you got really really lucky and he had no clue. Good job I guess. You did not really do anything but you seem like you have no friends so here is 5 points of popularity")
-              self.popularity += 5
               break
             else:
               print("Error")
@@ -446,23 +424,15 @@ class Person:
         if 35 not in completed_scenarios:
           completed_scenarios.append(35)
           while True:
-            x = input("It is college time people. So what college do you want to apply to? \n a= MIT \n b= Rutgers \n c= UCC \n")
+            x = input("")
             if x=='a':
-              print("Nice try dummy. You did not get in. Guess you are living in a cardboard box the rest of your life. Happiness is down 30 points")
-              self.happiness -= 30
               break
             if x=='b':
-              print("Good choice. You can commute but still have that campus experience. Your happiness is up 10 points")
-              self.happiness +=10 
               break
             if x =='c':
-              print("Go owls! You just saved your bank balance. Your happiness is up 10 points")
-              self.happiness += 10
               break
             else:
               print("Error")
-
-
   def study(self):
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
@@ -502,281 +472,8 @@ class Person:
           break
         else:
           print("Error")
-  def stats_constraints(self):
-    if self.health < 0:
-      self.health = 0
-    if self.health > 100:
-      self.health = 100
-    if self.happiness < 0:
-      self.happiness = 0
-    if self.happiness > 100:
-      self.happiness = 100
-    if self.smarts < 0:
-      self.smarts = 0
-    if self.smarts > 100:
-      self.smarts = 100
-    if self.looks < 0:
-      self.looks = 0
-    if self.looks > 100:
-      self.looks = 100
-
-  def grade_up(self):
-    if self.month_display == 6:
-      self.month_display = 1
-      self.grade += 1
-
-  def moves(self):
-    while True:
-      print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
-      move = input("What is your next move \n")
-      if move == 'a':
-        print("\n \n \n \n \n \n \n \n \n \n \n")
-        self.month_up()
-        break
-      elif move == 's':
-        self.study()
-      elif move == 'w':
-        self.workout()
-      else:
-        print("Error")
-
-  def dead(self):
-    death_number = random.randint(1,death_chance)
-    kill_number = random.randint(1,death_chance)
-    if self.health == 0 or death_number == kill_number:
-      self.status = "dead"
-    
-  def death(self):
-    while self.status == "dead":
-      x = random.randint(1,2)
-      if x == 1:
-        print("You died of an advil overdose \n Game Over")
-        break
-      if x == 2:
-        print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
-        break
-  def graduate(self):
-    while self.status == 'graduated':
-      print("Congrats you have graduated. \n You won!")
-      break
-  def graphics(self):
-    pygame.init
-    pygame.font.init()
-
-    background_color = (255,255,255)
-    (width, height) = (500, 800)
-
-    screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Bit Life Graphics")
-    screen.fill(background_color)
-            
-    pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(0, 10, 500, -200), 70)
-    pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
-    pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
-
-    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 585, 290, 25), 0)
-
-    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 625, 290, 25), 0)
-
-    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 665, 290, 25), 0)
-
-    pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 707, 290, 25), 0)
-
-    pygame.draw.rect(screen, (235, 237, 239), pygame.Rect(0, 46, 500, 45), 0)
-
-    pygame.draw.circle(screen, (253, 254, 254), [30, 23], 16, 2)
-    pygame.draw.line(screen, (253, 254, 254), [25,26], [35,26], 2)
-    pygame.draw.line(screen, (253, 254, 254), [25,22], [35,22], 2)
-
-    pygame.draw.line(screen, (144, 148, 151), [195,570], [195,745], 2)
-
-    pygame.draw.line(screen, (253, 254, 254), [25,18], [35,18], 2)
-
-    pygame.draw.circle(screen, (46, 204, 113), [245, 500], 60, 0)
-    pygame.draw.circle(screen, (253, 254, 254), [245, 500], 58, 5)
-
-    pygame.draw.line(screen, (253, 254, 254), [245,470], [245,500], 5)
-    pygame.draw.line(screen, (253, 254, 254), [225,485], [265,485], 5)
-
-    pygame.draw.line(screen, (93, 109, 126), [90,450], [90,550], 2)
-
-    pygame.draw.line(screen, (93, 109, 126), [180,450], [180,550], 2)
-
-    pygame.draw.line(screen, (93, 109, 126), [400,450], [400,550], 2)
-
-    pygame.draw.line(screen, (93, 109, 126), [310,450], [310,550], 2)
-
-    pygame.draw.line(screen, (28, 40, 51), [0,90], [500,90], 1)
-
-    max_health = 100
-    current_health = self.looks
-    percentage = current_health/max_health
-
-    if current_health > 31:
-        col = (46, 204, 113)
-    elif current_health > 13:
-        col = (255, 111, 0)
-    else:
-        col = (178, 34, 34)
-            
-    pygame.draw.rect(screen, col, pygame.Rect(197, 707, 290*percentage, 25), 0)
-
-    percentage2 = int(current_health/max_health * 100)
-    myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(percentage2), False, (255,255,255))
-    screen.blit(textsurface,(195, 707, 290*percentage, 25))
-
-    max_health = 100
-    current_health = self.smarts
-    percentage = current_health/max_health
-
-    if current_health > 31:
-        col = (46, 204, 113)
-    elif current_health > 13:
-        col = (255, 111, 0)
-    else:
-        col = (178, 34, 34)
-        
-    pygame.draw.rect(screen, col, pygame.Rect(197, 665, 290*percentage, 25), 0)
-
-    percentage2 = int(current_health/max_health * 100)
-    myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(percentage2), False, (255,255,255))
-    screen.blit(textsurface,(197, 665, 290*percentage, 25))
-
-    max_health = 100
-    current_health = self.health
-    percentage = current_health/max_health
-
-    if current_health > 31:
-        col = (46, 204, 113)
-    elif current_health > 13:
-        col = (255, 111, 0)
-    else:
-        col = (178, 34, 34)
-
-    pygame.draw.rect(screen, col, pygame.Rect(197, 625, 290*percentage, 25), 0)
-
-    percentage2 = int(current_health/max_health * 100)
-    myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(percentage2), False, (255,255,255))
-    screen.blit(textsurface,(197, 625, 290*percentage, 25))
-
-    max_health = 100
-    current_health = self.happiness
-    percentage = current_health/max_health
-
-    if current_health > 31:
-        col = (46, 204, 113)
-    elif current_health > 13:
-        col = (255, 111, 0)
-    else:
-        col = (178, 34, 34)
-
-    pygame.draw.rect(screen, col, pygame.Rect(197, 585, 290*percentage, 25), 0)
-
-    percentage2 = int(current_health/max_health * 100)
-    myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(percentage2), False, (255,255,255))
-    screen.blit(textsurface,(197, 585, 290*percentage, 25))
-
-    myfont = pygame.font.SysFont('Chunkfive', 40)
-    textsurface = myfont.render('BitSkool', False, (255, 255, 0))
-    screen.blit(textsurface,(200,10))
-
-    myfont = pygame.font.SysFont('Chunkfive', 35)
-    textsurface = myfont.render('Happiness', False, (144, 148, 151))
-    screen.blit(textsurface,(45,585))
-
-    myfont = pygame.font.SysFont('Chunkfive', 35)
-    textsurface = myfont.render('Health', False, (144, 148, 151))
-    screen.blit(textsurface,(93,625))
-
-    myfont = pygame.font.SysFont('Chunkfive', 35)
-    textsurface = myfont.render('Smarts', False, (144, 148, 151))
-    screen.blit(textsurface,(83,665))
-
-    myfont = pygame.font.SysFont('Chunkfive', 35)
-    textsurface = myfont.render('Looks', False, (144, 148, 151))
-    screen.blit(textsurface,(100,705))
-
-    myfont = pygame.font.SysFont('Chunkfive', 35)
-    textsurface = myfont.render('Month', False, (253, 254, 254))
-    screen.blit(textsurface,(210,510))
-
-    myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(popularity), False, (40, 116, 166))
-    screen.blit(textsurface,(475,50))
-
-    myfont = pygame.font.SysFont('Chunkfive', 25)
-    textsurface = myfont.render('Popularity', False, (40, 116, 166))
-    screen.blit(textsurface,(410,70))
-
-    myfont = pygame.font.SysFont('Chunkfive', 25)
-    textsurface = myfont.render('Magnet', False, (255, 255, 255))
-    screen.blit(textsurface,(20,520))
-
-    myfont = pygame.font.SysFont('Chunkfive', 20)
-    textsurface = myfont.render('PowerSchool', False, (255, 255, 255))
-    screen.blit(textsurface,(95,523))
-
-    myfont = pygame.font.SysFont('Chunkfive', 25)
-    textsurface = myfont.render('Outlook', False, (255, 255, 255))
-    screen.blit(textsurface,(323,520))
-
-    myfont = pygame.font.SysFont('Chunkfive', 20)
-    textsurface = myfont.render('Google', False, (255, 255, 255))
-    screen.blit(textsurface,(430,518))
-
-    myfont = pygame.font.SysFont('Chunkfive', 20)
-    textsurface = myfont.render('Classroom', False, (255, 255, 255))
-    screen.blit(textsurface,(420,530))
-
-
-    smile = pygame.transform.scale(pygame.image.load("Untitled.PNG"), [25,25])
-    screen.blit(smile,(170,583))
-    
-    heart = pygame.transform.scale(pygame.image.load("Untitled 2.PNG"), [25,25])
-    screen.blit(heart,(170,623))
-
-    brain = pygame.transform.scale(pygame.image.load("Untitled 3.PNG"), [25,25])
-    screen.blit(brain,(169,663))
-
-    weather = pygame.transform.scale(pygame.image.load("Untitled 4.PNG"), [25,25])
-    screen.blit(weather,(169,703))
-
-    school = pygame.transform.scale(pygame.image.load("cutmypic.PNG"), [45,45])
-    screen.blit(school,(25,470))
-
-    mhs = pygame.transform.scale(pygame.image.load("mhs.PNG"), [40,40])
-    screen.blit(mhs,(150,3))
-
-    powerschool = pygame.transform.scale(pygame.image.load("powerschool.PNG"), [45,45])
-    screen.blit(powerschool,(115,470))
-
-    outlook = pygame.transform.scale(pygame.image.load("outlook.PNG"), [45,45])
-    screen.blit(outlook,(335,470))
-
-    gc = pygame.transform.scale(pygame.image.load("gc.PNG"), [45,45])
-    screen.blit(gc,(430,470))
-
-
-    alien = pygame.transform.scale(pygame.image.load("alien.PNG"), [40,40])
-    screen.blit(alien,(15,48))
-
-    girl = pygame.transform.scale(pygame.image.load("girl.PNG"), [40,40])
-    screen.blit(girl,(15,48))
-
-    boy = pygame.transform.scale(pygame.image.load("boy.PNG"), [40,40])
-    screen.blit(boy,(15,48))
-
-
-            
-    pygame.display.flip()
-
-
+                              
 character = Person(input("What is your name"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
-character.graphics()
 character.introduce()
         
 if character.gender == "alien":
@@ -785,27 +482,74 @@ if character.gender == "alien":
   print('the fbi found you')
   
 while character.status == "alive":
-  character.graphics()
-  if character.month_total ==21:
+  if character.month_total ==24:
           character.status = 'graduated'
           break
+  if character.month_display == 6:
+    character.month_display = 1
+    character.grade += 1
         
-  character.grade_up()
-        
-  character.stats_constraints()
+  if character.health < 0:
+    character.health = 0
+  if character.health > 100:
+    character.health = 100
+  if character.happiness < 0:
+    character.happiness = 0
+  if character.happiness > 100:
+    character.happiness = 100
+  if character.smarts < 0:
+    character.smarts = 0
+  if character.smarts > 100:
+    character.smarts = 100
+  if character.looks < 0:
+    character.looks = 0
+  if character.looks > 100:
+    character.looks = 100
     
   character.stats()
-
-  character.dead()
-  
+  death_number = random.randint(1,death_chance)
+  kill_number = random.randint(1,death_chance)
+  if character.health == 0 or death_number == kill_number:
+    character.status = "dead"
+    break
   character.school_scenarios()
-  character.graphics()
   if character.status == "ded":
     break
   
-  character.moves()
-  character.graphics()
-  character.death()
-
-
-character.graduate()
+  while True:
+    print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
+    move = input("What is your next move \n")
+    if move == 'a':
+      print("\n \n \n \n \n \n \n \n \n \n \n")
+      character.month_up()
+      break
+    elif move == 's':
+      character.study()
+    elif move == 'w':
+      character.workout()
+    else:
+      print("Error")
+while character.status == "dead":
+  x = random.randint(1,2)
+  if x == 1:
+    print("You died of an advil overdose")
+    break
+  if x == 2:
+    print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good")
+    break
+while character.status == 'graduated':
+  print("Congrats you have graduated")
+  break
+##      elif scenario ==36:
+##        if 36 not in completed_scenarios:
+##          completed_scenarios.append(36)
+##          while True:
+##            x = input("")
+##            if x=='a':
+##              break
+##            if x=='b':
+##              break
+##            if x =='c':
+##              break
+##            else:
+##              print("Error")
