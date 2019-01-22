@@ -746,7 +746,7 @@ class Person:
     myfont = pygame.font.SysFont('Chunkfive', 20)
     textsurface = myfont.render('Classroom', False, (255, 255, 255))
     screen.blit(textsurface,(420,530))
-
+    
     myfont = pygame.font.SysFont('Chunkfive', 25)
     textsurface = myfont.render(str(self.name), False, (40, 116, 166))
     screen.blit(textsurface,(60,55))
@@ -788,10 +788,13 @@ class Person:
     gc = pygame.transform.scale(pygame.image.load("gc.PNG"), [45,45])
     screen.blit(gc,(430,470))
 
+
     alien = pygame.transform.scale(pygame.image.load("alien.PNG"), [40,40])
     
+
     girl = pygame.transform.scale(pygame.image.load("girl.PNG"), [40,40])
     
+
     boy = pygame.transform.scale(pygame.image.load("boy.PNG"), [40,40])
     
     if self.gender == "alien":
@@ -800,12 +803,12 @@ class Person:
       screen.blit(girl,(15,48))
     elif self.gender == "male":
       screen.blit(boy,(15,48))
-  
- 
+
+            
     pygame.display.flip()
 
 
-character = Person(input("What is your name (input first and last name)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
+character = Person(input("What is your name (input first and last)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 character.graphics()
 character.introduce()
         
