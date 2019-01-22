@@ -608,38 +608,38 @@ class Person:
 
     pygame.draw.line(screen, (28, 40, 51), [0,90], [500,90], 1)
 
-    max_health = 100
-    current_health = self.looks
-    percentage = current_health/max_health
+    max_looks = 100
+    current_looks = self.looks
+    percentage = current_looks/max_looks
 
-    if current_health > 31:
+    if current_looks > 31:
         col = (46, 204, 113)
-    elif current_health > 13:
+    elif current_looks > 13:
         col = (255, 111, 0)
     else:
         col = (178, 34, 34)
             
     pygame.draw.rect(screen, col, pygame.Rect(197, 707, 290*percentage, 25), 0)
 
-    percentage2 = int(current_health/max_health * 100)
+    percentage2 = int(current_looks/max_looks * 100)
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(195, 707, 290*percentage, 25))
 
-    max_health = 100
-    current_health = self.smarts
-    percentage = current_health/max_health
+    max_smarts = 100
+    current_smarts = self.smarts
+    percentage = current_smarts/max_smarts
 
-    if current_health > 31:
+    if current_smarts > 31:
         col = (46, 204, 113)
-    elif current_health > 13:
+    elif current_smarts > 13:
         col = (255, 111, 0)
     else:
         col = (178, 34, 34)
         
     pygame.draw.rect(screen, col, pygame.Rect(197, 665, 290*percentage, 25), 0)
 
-    percentage2 = int(current_health/max_health * 100)
+    percentage2 = int(current_smarts/max_smarts * 100)
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(197, 665, 290*percentage, 25))
@@ -662,20 +662,20 @@ class Person:
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(197, 625, 290*percentage, 25))
 
-    max_health = 100
-    current_health = self.happiness
-    percentage = current_health/max_health
+    max_happiness = 100
+    current_happiness = self.happiness
+    percentage = current_happiness/max_happiness
 
-    if current_health > 31:
+    if current_happiness > 31:
         col = (46, 204, 113)
-    elif current_health > 13:
+    elif current_happiness > 13:
         col = (255, 111, 0)
     else:
         col = (178, 34, 34)
 
     pygame.draw.rect(screen, col, pygame.Rect(197, 585, 290*percentage, 25), 0)
 
-    percentage2 = int(current_health/max_health * 100)
+    percentage2 = int(current_happiness/max_happiness * 100)
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(197, 585, 290*percentage, 25))
@@ -732,6 +732,19 @@ class Person:
     textsurface = myfont.render('Classroom', False, (255, 255, 255))
     screen.blit(textsurface,(420,530))
 
+    myfont = pygame.font.SysFont('Chunkfive', 25)
+    textsurface = myfont.render(str(self.name), False, (40, 116, 166))
+    screen.blit(textsurface,(60,55))
+    
+    myfont = pygame.font.SysFont('Chunkfive', 25)
+    othergrade = myfont.render(str(self.grade), False, (40, 116, 166))
+    ninthgrade = myfont.render("9th grade", False, (40, 116, 166))
+    thgrade = myfont.render("th grade", False, (40, 116, 166))
+    if self.grade == 9:
+      screen.blit(ninthgrade,(68,70))
+    else: 
+      screen.blit(othergrade,(68,70))
+      screen.blit(thgrade,(90,70))
 
     smile = pygame.transform.scale(pygame.image.load("Untitled.PNG"), [25,25])
     screen.blit(smile,(170,583))
@@ -760,13 +773,10 @@ class Person:
     gc = pygame.transform.scale(pygame.image.load("gc.PNG"), [45,45])
     screen.blit(gc,(430,470))
 
-
     alien = pygame.transform.scale(pygame.image.load("alien.PNG"), [40,40])
     
-
     girl = pygame.transform.scale(pygame.image.load("girl.PNG"), [40,40])
     
-
     boy = pygame.transform.scale(pygame.image.load("boy.PNG"), [40,40])
     
     if self.gender == "alien":
@@ -775,12 +785,12 @@ class Person:
       screen.blit(girl,(15,48))
     elif self.gender == "male":
       screen.blit(boy,(15,48))
-
-            
+  
+ 
     pygame.display.flip()
 
 
-character = Person(input("What is your name"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
+character = Person(input("What is your name (input first and last name)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 character.graphics()
 character.introduce()
         
