@@ -1,22 +1,28 @@
-import random
-
+#imports all neccessary tools
 import pygame
 import random
 from pygame.locals import*
 
+#randomly generates stats to start out each game
 happiness = random.randint(25,100)
 health = random.randint(25,100)
 smarts = random.randint(25,100)
 looks = random.randint(25,100)
 popularity = random.randint(25,100)
+
+#gives a number that determines the probability of if you randomly die
 death_chance= 50
+
+#randomly assigns a gender
 possible_genders = ["male","female","alien"]
 gender = random.choice(possible_genders)
+
+#lists make it so you cannot redo certain functions
 completed_scenarios = []
 times_studied = []
 times_workedout = []
 
-
+#creates a class for the character in the game
 class Person:
   def __init__(self,name,status,month_display,month_total,grade,gender,popularity,happiness,health,smarts,looks):
     self.name = name
@@ -31,9 +37,11 @@ class Person:
     self.smarts = smarts 
     self.looks = looks
     
+  #introduces the character
   def introduce(self):
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
 
+  #displays your stats
   def stats(self):
       print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
   
@@ -798,8 +806,6 @@ while character.status == "alive":
   character.grade_up()
         
   character.stats_constraints()
-    
-  character.stats()
 
   character.dead()
   
@@ -814,3 +820,4 @@ while character.status == "alive":
 
 
 character.graduate()
+
