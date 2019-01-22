@@ -745,6 +745,25 @@ class Person:
     else: 
       screen.blit(othergrade,(68,70))
       screen.blit(thgrade,(90,70))
+      
+    pygame.draw.rect(screen, (255, 255, 255), [410, 5, 80, 40])
+
+    myfont = pygame.font.SysFont('Chunkfive', 18)
+    textsurface = myfont.render('Become', False, (255, 193, 7))
+    screen.blit(textsurface,(425,8))
+
+    myfont = pygame.font.SysFont('Chunkfive', 18)
+    textsurface = myfont.render('A', False, (255, 193, 7))
+    screen.blit(textsurface,(422,20))
+
+    myfont = pygame.font.SysFont('Chunkfive', 18)
+    textsurface = myfont.render('Magnet', False, (40, 116, 166))
+    screen.blit(textsurface,(435,20))
+
+    myfont = pygame.font.SysFont('Chunkfive', 18)
+    textsurface = myfont.render('Student', False, (255, 193, 7))
+    screen.blit(textsurface,(428,30))
+
 
     smile = pygame.transform.scale(pygame.image.load("Untitled.PNG"), [25,25])
     screen.blit(smile,(170,583))
