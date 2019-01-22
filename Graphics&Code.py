@@ -44,11 +44,13 @@ class Person:
   #displays your stats
   def stats(self):
       print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
-  
+
+  #makes it so you move a month forward in the game
   def month_up(self):
     self.month_display += 1
     self.month_total += 1
 
+  #this function holds all of the scenarios you will face in the game
   def school_scenarios(self):
     global completed_scenarios
     
@@ -470,16 +472,21 @@ class Person:
             else:
               print("Error")
 
-
+  #allows the character to study and up their smarts
   def study(self):
+    #checks to see if the character already studied in the current month.If they have it will not let them study again.
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
     else:
+      #adds the current month to the month list so they can only check 
       times_studied.append(self.month_total)
       print('You went to the library to study like a good boy. Your smarts went up 5 points.')
+      #ups the characters smarts 5 points
       self.smarts += 5
-      
+
+  #allows the character to workout and up their looks
   def workout(self):
+    #checks to see if they worked out this month. If the
     if self.month_total in times_workedout:
       print("You got your swole on so hard you broke the gym. Come back at a later time.")
     else:
