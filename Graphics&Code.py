@@ -1,22 +1,28 @@
-import random
-
+#imports all neccessary tools
 import pygame
 import random
 from pygame.locals import*
 
+#randomly generates stats to start out each game
 happiness = random.randint(25,100)
 health = random.randint(25,100)
 smarts = random.randint(25,100)
 looks = random.randint(25,100)
 popularity = random.randint(25,100)
+
+#gives a number that determines the probability of if you randomly die
 death_chance= 50
+
+#randomly assigns a gender
 possible_genders = ["male","female","alien"]
 gender = random.choice(possible_genders)
+
+#lists make it so you cannot redo certain functions
 completed_scenarios = []
 times_studied = []
 times_workedout = []
 
-
+#creates a class for the character in the game
 class Person:
   def __init__(self,name,status,month_display,month_total,grade,gender,popularity,happiness,health,smarts,looks):
     self.name = name
@@ -31,16 +37,20 @@ class Person:
     self.smarts = smarts 
     self.looks = looks
     
+  #introduces the character
   def introduce(self):
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
 
+  #displays your stats
   def stats(self):
       print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
-  
+
+  #makes it so you move a month forward in the game
   def month_up(self):
     self.month_display += 1
     self.month_total += 1
 
+  #this function holds all of the scenarios you will face in the game
   def school_scenarios(self):
     global completed_scenarios
     
@@ -462,16 +472,21 @@ class Person:
             else:
               print("Error")
 
-
+  #allows the character to study and up their smarts
   def study(self):
+    #checks to see if the character already studied in the current month.If they have it will not let them study again.
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
     else:
+      #adds the current month to the month list so they can only check 
       times_studied.append(self.month_total)
       print('You went to the library to study like a good boy. Your smarts went up 5 points.')
+      #ups the characters smarts 5 points
       self.smarts += 5
-      
+
+  #allows the character to workout and up their looks
   def workout(self):
+    #checks to see if they worked out this month. If the
     if self.month_total in times_workedout:
       print("You got your swole on so hard you broke the gym. Come back at a later time.")
     else:
@@ -731,7 +746,7 @@ class Person:
     myfont = pygame.font.SysFont('Chunkfive', 20)
     textsurface = myfont.render('Classroom', False, (255, 255, 255))
     screen.blit(textsurface,(420,530))
-
+    
     myfont = pygame.font.SysFont('Chunkfive', 25)
     textsurface = myfont.render(str(self.name), False, (40, 116, 166))
     screen.blit(textsurface,(60,55))
@@ -792,10 +807,13 @@ class Person:
     gc = pygame.transform.scale(pygame.image.load("gc.PNG"), [45,45])
     screen.blit(gc,(430,470))
 
+
     alien = pygame.transform.scale(pygame.image.load("alien.PNG"), [40,40])
     
+
     girl = pygame.transform.scale(pygame.image.load("girl.PNG"), [40,40])
     
+
     boy = pygame.transform.scale(pygame.image.load("boy.PNG"), [40,40])
     
     if self.gender == "alien":
@@ -804,12 +822,12 @@ class Person:
       screen.blit(girl,(15,48))
     elif self.gender == "male":
       screen.blit(boy,(15,48))
-  
- 
+
+            
     pygame.display.flip()
 
 
-character = Person(input("What is your name (input first and last name)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
+character = Person(input("What is your name (input first and last)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 character.graphics()
 character.introduce()
         
@@ -827,8 +845,6 @@ while character.status == "alive":
   character.grade_up()
         
   character.stats_constraints()
-    
-  character.stats()
 
   character.dead()
   
@@ -843,3 +859,4 @@ while character.status == "alive":
 
 
 character.graduate()
+
