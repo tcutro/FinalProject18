@@ -553,7 +553,8 @@ class Person:
     while self.status == 'graduated':
       print("Congrats you have graduated. \n You won!")
       break
-                              
+
+                        
 character = Person(input("What is your name"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
 
 character.introduce()

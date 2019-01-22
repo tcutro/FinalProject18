@@ -762,14 +762,19 @@ class Person:
 
 
     alien = pygame.transform.scale(pygame.image.load("alien.PNG"), [40,40])
-    screen.blit(alien,(15,48))
+    
 
     girl = pygame.transform.scale(pygame.image.load("girl.PNG"), [40,40])
-    screen.blit(girl,(15,48))
+    
 
     boy = pygame.transform.scale(pygame.image.load("boy.PNG"), [40,40])
-    screen.blit(boy,(15,48))
-
+    
+    if self.gender == "alien":
+      screen.blit(alien,(15,48))
+    elif self.gender == "female":
+      screen.blit(girl,(15,48))
+    elif self.gender == "male":
+      screen.blit(boy,(15,48))
 
             
     pygame.display.flip()
