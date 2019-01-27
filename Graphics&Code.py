@@ -17,8 +17,10 @@ death_chance= 50
 possible_genders = ["male","female","alien"]
 gender = random.choice(possible_genders)
 
-#lists make it so you cannot redo certain functions
+#List to keep track of what scenarios are completed so that they do not get repeated
 completed_scenarios = []
+
+#lists to keep track of if the person did a certain function 
 times_studied = []
 times_workedout = []
 
@@ -52,9 +54,13 @@ class Person:
 
   #this function holds all of the scenarios you will face in the game
   def school_scenarios(self):
+
+    #makes completed_scenarios a global list
     global completed_scenarios
-    
+
+    #checks to see if the characters grade is 9 
     if self.grade == 9:
+      #loop is created so that if a scenario that is already 
       while True:
         scenario = random.randint(1,6)
         if scenario not in completed_scenarios:
@@ -478,45 +484,62 @@ class Person:
     if self.month_total in times_studied:
       print("We all know you aint studying more than once a month. Nice try")
     else:
-      #adds the current month to the month list so they can only check 
+      #adds the current month to the times_studied so they can only study once this month
       times_studied.append(self.month_total)
       print('You went to the library to study like a good boy. Your smarts went up 5 points.')
-      #ups the characters smarts 5 points
+      #characters smarts go up 5 points
       self.smarts += 5
 
   #allows the character to workout and up their looks
   def workout(self):
-    #checks to see if they worked out this month. If the
+    #checks to see if they worked out this month. If they have it will not let them.
     if self.month_total in times_workedout:
       print("You got your swole on so hard you broke the gym. Come back at a later time.")
     else:
+      #adds the current month to times_workedout so they can oly work out once this month
       times_workedout.append(self.month_total)
+      #loop will reask the question until a valid answer is inputted
       while True:
+        #asks the user to input what they want to work on at the gym
         x = input("What are you working on? \n c = cardio \n f = flexibility \n w = weights \n p = pretend to do something \n")
+        #generates a random number to see if the character injures themselves at a gym
         y = random.randint(1,10)
+        #check to see if the randomly generated number is 1 and if it is it tells the character that they injured themselves at the gym.
         if y == 1:
           print("Nice job bozo. You injured yourself at the gym. Your health is now down 10 points.")
+          #characters health goes down 10 points and then the loop is exited
           self.health -= 10
           break
+        #checks to see if the user wanted to work on cardio
         elif x == 'c':
           print("The only other time I have you seen you ran that fast is into Wendy's when you heard they were having a deal. But hey your looks and health went up 5 points")
+          #characters looks go up 5 points
           self.looks += 5
+          #characters health goes up 5 points and exits loop 
           self.health += 5
           break
+        #checks to see if the user wants to work on flexibility
         elif x == 'f':
           print("Maybe next time youll actually be able to touch your toes but at least you put in some effort. Your health went up 5 points")
+          #characters health goes up 5 points and exits loop
           self.health += 5
           break
+        #checks to see if the user wants to lift weights
         elif x== 'w':
           print("Damn the grind really is real. You actually broke a sweat. Not gonna lie im surprised. Your looks went up 10 points")
+          #characters looks goes up 10 points and exits loop
           self.looks += 10
           break
         elif x== 'p':
           print("This is lowkey sad but hey what works for you works for me so your happiness went up 5 points.")
+          #characters happiness goes up 5 points and exits loop
           self.happiness += 5
           break
+        #if the user puts in any other input it prints "Error" and the loop restarts
         else:
           print("Error")
+          
+  #this function prevents any of the characters stats from going below 0 and above 100
   def stats_constraints(self):
     if self.health < 0:
       self.health = 0
@@ -534,46 +557,72 @@ class Person:
       self.looks = 0
     if self.looks > 100:
       self.looks = 100
-
+      
+  #this function advances the user a grade once they have completed 5 months there
   def grade_up(self):
     if self.month_display == 6:
       self.month_display = 1
       self.grade += 1
-
+      
+  #this function tells the users what moves they can make and returns their input.
   def moves(self):
+    #loop repeats until the user inputs a valid move
     while True:
+      #displays possible you can play 
       print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
+      #asks the user what move they want to play
       move = input("What is your next move \n")
+      #if they want to advance a month  
       if move == 'a':
         print("\n \n \n \n \n \n \n \n \n \n \n")
+        #the function month_up() is ran
         self.month_up()
+        #the graphics are updated
+        self.graphics()
+        #the loop is exited
         break
+      #if they want to study
       elif move == 's':
+        #the function study() runs
         self.study()
+        #the graphics are updated
+        self.graphics()
+      #if they want to workout
       elif move == 'w':
+        #the function workout()  runs
         self.workout()
+        #the graphics are updated
+        self.graphics()
+      #if the user inputs any other input it prints 'Error' and the loop restarts
       else:
         print("Error")
-
+        
+  #this function checks if you die or are dead
   def dead(self):
+    #two random numbers are generated 
     death_number = random.randint(1,death_chance)
     kill_number = random.randint(1,death_chance)
+    #if the two numbers that are generated are equal or the characters health is 0
     if self.health == 0 or death_number == kill_number:
+      #the characters status is changed to dead
       self.status = "dead"
-    
+
+  #this function only runs if the characters status is dead
   def death(self):
-    while self.status == "dead":
-      x = random.randint(1,2)
-      if x == 1:
-        print("You died of an advil overdose \n Game Over")
-        break
-      if x == 2:
-        print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
-        break
+    #a random number is generated and depending on the number that death situation will run
+    x = random.randint(1,2)
+    if x == 1:
+      print("You died of an advil overdose \n Game Over")
+    if x == 2:
+      print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
+
+  #this function just tells the user that they graduated and won the game
   def graduate(self):
     while self.status == 'graduated':
       print("Congrats you have graduated. \n You won!")
       break
+    
+  #this function runs all of the graphics
   def graphics(self):
     pygame.init
     pygame.font.init()
@@ -826,37 +875,57 @@ class Person:
             
     pygame.display.flip()
 
-
+#this creates a character of the person class and asks the user to input their name
 character = Person(input("What is your name (input first and last)?"),"alive",1,1,9,gender,50,happiness,health,smarts,looks)
+#runs the graphics function
 character.graphics()
+#runs the introduce function
 character.introduce()
-        
+
+#checks to see if the characters gender is alien
 if character.gender == "alien":
+  #prints alien text, changes character status and says the fbi found you
   print("⏁⊑⟒ ☌⟟⍀⌰ ⏃⏁ ⏁⊑⟒ ⏚⍜⍜⏁⊑ ⌇⍜⌰⎅ ⎎⟟⎎⏁⊬ ⏚⍜⋏⎅⌇. ⌰⍜⍜☍ ⟟⋏ ⏁⊑⟒ ☊⍜⍀⋏⟒⍀ ⏁⍜ ⎎⟟⋏⎅ ⏁⊑⟒ ⏁⏃⋏ ⌇⊑⟟⍀⏁.⏁⊑⟒ ☌⍀⟒⏃⏁ ⏃⋏⏁⟟⍾⎍⟟⏁⊬ ⍜⎎ ⋏⍜⏁⊑⟟⋏☌ ⟟⌇ ⏃⌿⌿⏃⍀⟒⋏⏁ ⎎⍀⍜⋔ ⟟⏁⌇ ⏚⟒⟟⋏☌ ⌇⍜ ⎐⟟⌇⟟⏚⌰⟒ ⟟⋏ ⏁⊑⟒ ⏃☊☊⍜⎍⋏⏁⌇ ⍙⟒ ⊑⏃⎐⟒ ⍜⎎ ⏁⊑⟒ ⏚⟒☌⟟⋏⋏⟟⋏☌ ⍜⎎ ⟒⎐⟒⍀⊬ ⋏⏃⏁⟟⍜⋏. ⏁⊑⟟⌇ ⟟⌇ ⎐⟒⍀⊬ ⌿⌰⏃⟟⋏⌰⊬ ⏁⍜ ⏚⟒ ⎅⟟⌇☊⍜⎐⟒⍀⟒⎅ ⟟⋏ ⏁⊑⟒ ⎎⟟⍀⌇⏁ ⌿⏃☌⟒⌇, ⏃⋏⎅ ⌇⍜⋔⟒⏁⟟⋔⟒⌇")
-  character.status = 'ded'
+  character.status = 'alien'
   print('the fbi found you')
-  
+
+#loop only runs when the character's status is alive
 while character.status == "alive":
+  #runs the graohics function
   character.graphics()
+  
+  #checks to see if the character has played for 21 months. If so the character's status is changed to graduated and the loop is exited
   if character.month_total ==21:
           character.status = 'graduated'
           break
         
+  #runs the grade_up() function
   character.grade_up()
-        
+
+  #runs the stats_constraints() function
   character.stats_constraints()
 
+  #runs the dead() function
   character.dead()
-  
+
+  #runs the school_scenarios() function
   character.school_scenarios()
+  
+  #runs the graphics() function
   character.graphics()
+  
+  #checks to see if the characters status is ded(certain scenarios cause this) and if so it breaks the loop
   if character.status == "ded":
     break
   
+  #runs the moves() function
   character.moves()
+
+  #runs the graphics() function
   character.graphics()
+
+  #runs the death() function
   character.death()
 
-
+#runs the graduate function
 character.graduate()
-
