@@ -43,10 +43,7 @@ class Person:
   def introduce(self):
     print(f"Welcome {self.name} to your first day of 9th grade. You were born {self.gender}.")
 
-  #displays your stats
-  def stats(self):
-      print(f"Grade: {self.grade} \nMonth: {self.month_display} \n\n Stats:\n Popularity: {self.popularity} \n Happiness: {self.happiness} \n Health: {self.health} \n Smarts: {self.smarts} \n Looks: {self.looks} \n")
-
+  
   #makes it so you move a month forward in the game
   def month_up(self):
     self.month_display += 1
@@ -57,62 +54,96 @@ class Person:
 
     #makes completed_scenarios a global list
     global completed_scenarios
-
+#Note: All the scenarios below are formatted the same so the comments will only be applied to the first two. The rest follow the same format
     #checks to see if the characters grade is 9 
     if self.grade == 9:
-      #loop is created so that if a scenario that is already 
+      #loop is created so that if a scenario that is already picked was picked again it would pick a new scenario.
       while True:
+        #generates random number
         scenario = random.randint(1,6)
+        #checks to see if the scenario has already been completed
         if scenario not in completed_scenarios:
           break
+      #if the number generated = 1
       if scenario == 1:
+        #checks to see if the scenario has been ran already
         if 1 not in completed_scenarios:
+          #adds the scenario to the list completed_scenarios so it is not played again
           completed_scenarios.append(1)
+          #loop created so that if the user inputs an invalid input it runs again until a valid input is made
           while True:
+            #scenario is presented and the character is given options. The user then inputs an option
             x = input("A bully wants to take your lunch. \n What will you do? \n \n a= punch the bully \n b= give the bully your lunch \n c = run away \n")
+            #if the input is 'a'
             if x == 'a':
+              #a random number is generated
               fight = random.randint(1,2)
+              #if the number generated is 1 teh character gets beat up
               if fight == 1:
                 print("You got beat up")
+                #character health goes down 10 points and loop is broken
                 self.health -= 10
                 print("OOF that one hurt. Your health just went down ten points")
                 break
+              #if the number generated is 2 the fight is won
               if fight == 2:
                 print("You won")
+                #character happiness goes up 10 points
                 self.happiness += 10
                 print("Congrats you surprisingly won! Your happiness went up 10 points")
+                #the loop is broken
                 break
+            #if the user input is 'b'
             elif x == 'b':
+              #character happiness goes down 10 points
               self.happiness -= 10
               print("That one was a blow to your self esteem. Your happiness went down 10 points")
+              #loop is broken
               break
             elif x == 'c':
+              #character smarts goes up 5 points
               self.smarts += 5
               print("Finally, you did something intelligent. Your smarts went up 5 points")
+              #loop is broken
               break
+            #if the user inputs any other input it prints 'Error' and the loop restarts
             else:
               print("Error")
-              
+      #if the number generated is 2       
       elif scenario == 2:
+        #checks to see if this scenario was already completed
         if 2 not in completed_scenarios:
+          #adds this scenario to completed_scenarios so it is not repeated
           completed_scenarios.append(2)
+          #loop created so that if the user inputs an invalid input it runs again until a valid input is made
           while True:
+            #scenario is presented and the character is given options. The user then inputs an option
             x = input("You are assigned a group project from your freshman technology teacher. What are you going to do? \n \n a= do all the work \n b= do none of the work \n c= split up the work evenly \n")
+            #if the user input is a 
             if x == 'a':
+              #character smarts goes up 10 points
               self.smarts += 10
               print("Congrats try hard. Your now THAT kid, but hey your smarts went up 10 points")
+              #loop is broken
               break
+            #if the user input is b
             elif x == 'b':
+              #character popularity goes down 10 points
               self.popularity -= 10
               print("Ew. Now your THAT kid. No one likes you so you lost 10 popularity points")
+              #loop is broken
               break
+            #if the user input is c
             elif x == 'c':
+              #charcter popularity goes up 5 points
               self.popularity += 5
               print("You're chill with your groupmates now. You gained 5 popularity points")
+              #loop is broken
               break
+            #if the user inputs any other input it prints 'Error' and the loop restarts
             else:
               print("Error")
-              
+#Note once again all the other scenarios follow the same format
       elif scenario == 3:
         if 3 not in completed_scenarios:
           completed_scenarios.append(3)
@@ -136,7 +167,7 @@ class Person:
         if 4 not in completed_scenarios:
           completed_scenarios.append(4)
           while True:
-            x = input("You are on the way to school and you can't find your idea? What are you going to do? \n \n a= Take the L(OP) \n b= Try to sneak into school without it \n c= run back home \n")
+            x = input("You are on the way to school and you can't find your id? What are you going to do? \n \n a= Take the L(OP) \n b= Try to sneak into school without it \n c= run back home \n")
             if x=='a':
               print("Well good job losng your ID bozo. It turns out that during your LOP they gave out free food in the cafeteria. You lost 10 points of happiness")
               self.happiness -=10
