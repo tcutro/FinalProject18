@@ -640,14 +640,8 @@ class Person:
 
   #this function only runs if the characters status is dead
   def death(self):
-<<<<<<< HEAD
-<<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
-=======
->>>>>>> parent of 7ca4c58... commit
-=======
     #a random number is generated and depending on the number that death situation will run
->>>>>>> parent of 7ecb8c0... Added comments and the game over graphics
     while self.status == "dead":
       x = random.randint(1,2)
       if x == 1:
@@ -656,22 +650,13 @@ class Person:
       if x == 2:
         print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
         break
-<<<<<<< HEAD
-<<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
     x = random.randint(1,2)
     if x == 1:
       print("You died of an advil overdose \n Game Over")
     if x == 2:
-      print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
-
+      print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")  
   #this function just tells the user that they graduated and won the game
-=======
->>>>>>> parent of 7ca4c58... commit
-=======
-        
-  #this function just tells the user that they graduated and won the game
->>>>>>> parent of 7ecb8c0... Added comments and the game over graphics
   def graduate(self):
     while self.status == 'graduated':
       print("Congrats you have graduated. \n You won!")
@@ -984,7 +969,3 @@ while character.status == "alive":
 
 #runs the graduate function
 character.graduate()
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 7ecb8c0... Added comments and the game over graphics
