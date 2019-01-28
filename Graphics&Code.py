@@ -54,6 +54,7 @@ class Person:
 
     #makes completed_scenarios a global list
     global completed_scenarios
+    
 #Note: All the scenarios below are formatted the same so the comments will only be applied to the first two. The rest follow the same format
     #checks to see if the characters grade is 9 
     if self.grade == 9:
@@ -109,6 +110,7 @@ class Person:
             #if the user inputs any other input it prints 'Error' and the loop restarts
             else:
               print("Error")
+              
       #if the number generated is 2       
       elif scenario == 2:
         #checks to see if this scenario was already completed
@@ -131,7 +133,6 @@ class Person:
               #character popularity goes down 10 points
               self.popularity -= 10
               print("Ew. Now you're THAT kid. No one likes you so you lost 10 popularity points")
-              print("Ew. Now your THAT kid. No one likes you so you lost 10 popularity points")
               #loop is broken
               break
             #if the user input is c
@@ -145,6 +146,7 @@ class Person:
             else:
               print("Error")
 #Note once again all the other scenarios follow the same format
+              
       elif scenario == 3:
         if 3 not in completed_scenarios:
           completed_scenarios.append(3)
@@ -168,7 +170,7 @@ class Person:
         if 4 not in completed_scenarios:
           completed_scenarios.append(4)
           while True:
-            x = input("You are on the way to school and you can't find your idea? What are you going to do? \n \n a= Take the LOP \n b= Try to sneak into school without it \n c= run back home \n")
+            x = input("You are on the way to school and you can't find your ID? What are you going to do? \n \n a= Take the LOP \n b= Try to sneak into school without it \n c= run back home \n")
             if x=='a':
               print("Good job losng your ID bozo. It turns out that during your LOP they gave out free food in the cafeteria. You lost 10 points of happiness")
               self.happiness -=10
@@ -241,7 +243,7 @@ class Person:
               break
             if x=='b':
               print("Congrats! You failed, but I give you props for knowing your true capabilities, so your smarts went up 10 points")
-              smarts += 10
+              self.smarts += 10
               break
             else:
               print("Error")
@@ -285,7 +287,7 @@ class Person:
           while True:
             x = input("You are walking down the hallway to stop to tie your shoe. A group of annoying freshman than procceed to trample you. What are you going to do? \n a = hunt every single one of them down and ... \n b= yell at them \n c= forget that it happened \n")
             if x=='a':
-              print("Um I am now concerned but the police found out your plans after I informed them and they killed you")
+              print("Um I am now concerned but the police found out your plans after I informed them and they killed you \n Game Over")
               self.status = "ded"
               break
             if x=='b':
@@ -369,7 +371,7 @@ class Person:
               break
             if x=='b':
               print("Honestly don't blame you. The 48 hour challenge is the wave. Your happiness went up 5 points")
-              self.hapinness += 10
+              self.happiness += 10
               break
             if x =='c':
               print("You are the kid no one likes. Your popularity went down 10 points")
@@ -464,6 +466,7 @@ class Person:
               break
             if x=='b':
               print("I don't blame you. I didn't see anything if you didn't. Nothing happens.")
+              break
             if x== 'c':
               print("Well that was stupid. When has that ever worked. You flood the school. Smarts went down 5 points")
               self.smarts += 10
@@ -474,7 +477,7 @@ class Person:
         if 34 not in completed_scenarios:
           completed_scenarios.append(34)
           while True:
-            x = input("You are in a rush because you are late to school and accidently scratch the principal's car. What are you going to do? \n a= move your car \n b= tell the principal \n c= hope he does not notice")
+            x = input("You are in a rush because you are late to school and accidently scratch the principal's car. What are you going to do? \n a= move your car \n b= tell the principal \n c= hope he does not notice \n")
             if x=='a':
               print("Um nice try bozo, but there are cameras and they saw the whole thing. You got a month of detention. Happiness went down 10 points")
               self.happiness -= 10              
@@ -509,7 +512,7 @@ class Person:
             else:
               print("Error")
 
-  #allows the character to study and up their smarts
+  #allows the character to study and increase their smarts
   def study(self):
     #checks to see if the character already studied in the current month.If they have it will not let them study again.
     if self.month_total in times_studied:
@@ -521,18 +524,21 @@ class Person:
       #ups the characters smarts 5 points
       self.smarts += 5
 
-  #allows the character to workout and up their looks
+  #allows the character to workout and increase their looks
   def workout(self):
+    
     #checks to see if they worked out this month. If they have it will not let them.
     if self.month_total in times_workedout:
       print("You got your swole on so hard you broke the gym. Come back at a later time.")
     else:
       #adds the current month to times_workedout so they can oly work out once this month
       times_workedout.append(self.month_total)
+      
       #loop will reask the question until a valid answer is inputted
       while True:
         #asks the user to input what they want to work on at the gym
         x = input("What are you working on? \n c = cardio \n f = flexibility \n w = weights \n p = pretend to do something \n")
+        
         #generates a random number to see if the character injures themselves at a gym
         y = random.randint(1,10)
         #check to see if the randomly generated number is 1 and if it is it tells the character that they injured themselves at the gym.
@@ -540,6 +546,7 @@ class Person:
           print("Nice job bozo. You injured yourself at the gym. Your health went down 10 points.")
           self.health -= 10
           break
+        
         #checks to see if the user wanted to work on cardio
         elif x == 'c':
           print("The only other time I have you seen you run that fast is into Wendy's when they started doing 4 for 4. But hey your looks and health went up 5 points")
@@ -547,16 +554,20 @@ class Person:
           #characters health goes up 5 points and exits loop 
           self.health += 5
           break
+        
         #checks to see if the user wants to work on flexibility
         elif x == 'f':
           print("Maybe next time you'll actually be able to touch your toes but at least you put in some effort. Your health went up 5 points")
           self.health += 5
           break
+        
         #checks to see if the user wants to lift weights
         elif x== 'w':
           print("Damn the grind really is real. You actually broke a sweat. Not gonna lie I'm surprised. Your looks went up 10 points")
           self.looks += 10
           break
+        
+        #checks to see if the user wants to pretend to work out
         elif x== 'p':
           print("This is lowkey sad but hey what works for you works for me so your happiness went up 5 points.")
           #characters happiness goes up 5 points and exits loop
@@ -584,14 +595,13 @@ class Person:
       self.looks = 0
     if self.looks > 100:
       self.looks = 100
-    if self.popularity > 100:
-      self.popularity = 100
       
   #this function advances the user a grade once they have completed 5 months there
   def grade_up(self):
     if self.month_display == 6:
       self.month_display = 1
       self.grade += 1
+      print(f'Welcome to {self.grade}th grade')
       
   #this function tells the users what moves they can make and returns their input.
   def moves(self):
@@ -599,8 +609,10 @@ class Person:
     while True:
       #displays possible you can play 
       print("\n Moves: \n a = advance a month \n s = go study at the library \n w = go workout")
+      
       #asks the user what move they want to play
       move = input("What is your next move \n")
+      
       #if they want to advance a month  
       if move == 'a':
         print("\n \n \n \n \n \n \n \n \n \n \n")
@@ -610,12 +622,14 @@ class Person:
         self.graphics()
         #the loop is exited
         break
+      
       #if they want to study
       elif move == 's':
         #the function study() runs
         self.study()
         #the graphics are updated
         self.graphics()
+        
       #if they want to workout
       elif move == 'w':
         #the function workout()  runs
@@ -623,6 +637,7 @@ class Person:
         #the graphics are updated
         self.graphics()
       #if the user inputs any other input it prints 'Error' and the loop restarts
+        
       else:
         print("Error")
         
@@ -631,6 +646,7 @@ class Person:
     #two random numbers are generated 
     death_number = random.randint(1,death_chance)
     kill_number = random.randint(1,death_chance)
+    
     #if the two numbers that are generated are equal or the characters health is 0
     if self.health == 0 or death_number == kill_number:
       #the characters status is changed to dead
@@ -644,9 +660,11 @@ class Person:
       if x == 1:
         print("You died of an advil overdose \n Game Over")
         break
+      
       if x == 2:
         print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
         break
+
   #this function just tells the user that they graduated and won the game
   def graduate(self):
     while self.status == 'graduated':
@@ -655,6 +673,7 @@ class Person:
     
   #this function runs all of the graphics
   def graphics(self):
+    
   #initiating pygame program and setting up all the shapes in the background
     pygame.init
     pygame.font.init()
@@ -667,7 +686,9 @@ class Person:
     screen.fill(background_color)
             
     pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(0, 10, 500, -200), 70)
+    
     pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
+    
     pygame.draw.rect(screen, (40, 116, 166), pygame.Rect(0, 500, 500, 0), 100)
 
     pygame.draw.rect(screen, (234, 242, 248), pygame.Rect(195, 585, 290, 25), 0)
@@ -681,7 +702,9 @@ class Person:
     pygame.draw.rect(screen, (235, 237, 239), pygame.Rect(0, 46, 500, 45), 0)
 
     pygame.draw.circle(screen, (253, 254, 254), [30, 23], 16, 2)
+    
     pygame.draw.line(screen, (253, 254, 254), [25,26], [35,26], 2)
+    
     pygame.draw.line(screen, (253, 254, 254), [25,22], [35,22], 2)
 
     pygame.draw.line(screen, (144, 148, 151), [195,570], [195,745], 2)
@@ -689,9 +712,11 @@ class Person:
     pygame.draw.line(screen, (253, 254, 254), [25,18], [35,18], 2)
 
     pygame.draw.circle(screen, (46, 204, 113), [245, 500], 60, 0)
+    
     pygame.draw.circle(screen, (253, 254, 254), [245, 500], 58, 5)
 
     pygame.draw.line(screen, (253, 254, 254), [245,470], [245,500], 5)
+    
     pygame.draw.line(screen, (253, 254, 254), [225,485], [265,485], 5)
 
     pygame.draw.line(screen, (93, 109, 126), [90,450], [90,550], 2)
@@ -720,6 +745,7 @@ class Person:
     pygame.draw.rect(screen, col, pygame.Rect(197, 707, 290*percentage, 25), 0)
 
     percentage2 = int(current_looks/max_looks * 100)
+    
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(195, 707, 290*percentage, 25))
@@ -738,6 +764,7 @@ class Person:
     pygame.draw.rect(screen, col, pygame.Rect(197, 665, 290*percentage, 25), 0)
 
     percentage2 = int(current_smarts/max_smarts * 100)
+    
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(197, 665, 290*percentage, 25))
@@ -756,6 +783,7 @@ class Person:
     pygame.draw.rect(screen, col, pygame.Rect(197, 625, 290*percentage, 25), 0)
 
     percentage2 = int(current_health/max_health * 100)
+    
     myfont = pygame.font.SysFont('Chunkfive', 28)
     textsurface = myfont.render(str(percentage2), False, (255,255,255))
     screen.blit(textsurface,(197, 625, 290*percentage, 25))
@@ -804,7 +832,7 @@ class Person:
     screen.blit(textsurface,(210,510))
 
     myfont = pygame.font.SysFont('Chunkfive', 28)
-    textsurface = myfont.render(str(popularity), False, (40, 116, 166))
+    textsurface = myfont.render(str(self.popularity), False, (40, 116, 166))
     screen.blit(textsurface,(475,50))
 
     myfont = pygame.font.SysFont('Chunkfive', 25)
@@ -912,10 +940,12 @@ class Person:
             
     pygame.display.flip()
 
-character = Person(input("What is your name (input first and last name)?"),"alive",1,1,9,gender,popularity,happiness,health,smarts,looks)
 #this creates a character of the person class and asks the user to input their name
+character = Person(input("What is your name (input first and last name)?"),"alive",1,1,9,gender,popularity,happiness,health,smarts,looks)
+
 #runs the graphics function
 character.graphics()
+
 #runs the introduce function
 character.introduce()
 
@@ -928,7 +958,8 @@ if character.gender == "alien":
 
 #loop only runs when the character's status is alive
 while character.status == "alive":
-  #runs the graohics function
+
+  #runs the graphics function
   character.graphics()
   
   #checks to see if the character has played for 21 months. If so the character's status is changed to graduated and the loop is exited
