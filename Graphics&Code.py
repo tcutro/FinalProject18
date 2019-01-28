@@ -565,7 +565,10 @@ class Person:
       self.status = "dead"
     
   def death(self):
+<<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
+=======
+>>>>>>> parent of 7ca4c58... commit
     while self.status == "dead":
       x = random.randint(1,2)
       if x == 1:
@@ -574,6 +577,7 @@ class Person:
       if x == 2:
         print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
         break
+<<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
     x = random.randint(1,2)
     if x == 1:
@@ -582,6 +586,8 @@ class Person:
       print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
 
   #this function just tells the user that they graduated and won the game
+=======
+>>>>>>> parent of 7ca4c58... commit
   def graduate(self):
     while self.status == 'graduated':
       print("Congrats you have graduated. \n You won!")
