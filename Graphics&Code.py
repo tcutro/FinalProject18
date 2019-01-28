@@ -639,10 +639,6 @@ class Person:
   #this function only runs if the characters status is dead
   def death(self):
     #a random number is generated and depending on the number that death situation will run
-<<<<<<< HEAD
-=======
-    #a random number is generated and depending on the number that death situation will run
->>>>>>> master
     while self.status == "dead":
       x = random.randint(1,2)
       if x == 1:
@@ -651,13 +647,6 @@ class Person:
       if x == 2:
         print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
         break
-    #a random number is generated and depending on the number that death situation will run
-    x = random.randint(1,2)
-    if x == 1:
-      print("You died of an advil overdose \n Game Over")
-    if x == 2:
-      print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
-
   #this function just tells the user that they graduated and won the game
   def graduate(self):
     while self.status == 'graduated':
@@ -974,6 +963,6 @@ while character.status == "alive":
 
   #runs the death() function
   character.death()
-
+  
 #runs the graduate function
 character.graduate()
