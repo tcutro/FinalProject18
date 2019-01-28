@@ -568,6 +568,7 @@ class Person:
 <<<<<<< HEAD
 <<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> parent of 0914408... trying to fix commit
@@ -585,12 +586,18 @@ class Person:
 =======
 >>>>>>> parent of 0914408... trying to fix commit
     #a random number is generated and depending on the number that death situation will run
+=======
+>>>>>>> parent of 6460376... fixed death function
     x = random.randint(1,2)
     if x == 1:
       print("You died of an advil overdose \n Game Over")
     if x == 2:
       print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 6460376... fixed death function
   #this function just tells the user that they graduated and won the game
 <<<<<<< HEAD
 =======
