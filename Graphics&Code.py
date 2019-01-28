@@ -566,9 +566,12 @@ class Person:
     
   def death(self):
 <<<<<<< HEAD
+<<<<<<< HEAD
     #a random number is generated and depending on the number that death situation will run
 =======
 <<<<<<< HEAD
+>>>>>>> parent of 0914408... trying to fix commit
+=======
 >>>>>>> parent of 0914408... trying to fix commit
     while self.status == "dead":
       x = random.randint(1,2)
@@ -578,7 +581,6 @@ class Person:
       if x == 2:
         print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
         break
-<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of 0914408... trying to fix commit
@@ -590,9 +592,13 @@ class Person:
       print("You tripped and fell and drowned in the toilet. There was no poop in it though so you are all good. \n Game Over")
 <<<<<<< HEAD
   #this function just tells the user that they graduated and won the game
+<<<<<<< HEAD
 =======
 
   #this function just tells the user that they graduated and won the game
+>>>>>>> parent of 6460376... fixed death function
+>>>>>>> parent of 0914408... trying to fix commit
+=======
 >>>>>>> parent of 6460376... fixed death function
 >>>>>>> parent of 0914408... trying to fix commit
   def graduate(self):
